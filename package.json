@@ -1,0 +1,65 @@
+{
+  "name": "graphql-strong",
+  "version": "0.0.2",
+  "description": "Define your GraphQL schemas with confidence that your values are correct.",
+  "author": "Caleb Meredith <calebmeredith8@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/calebmer/graphql-strong#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/calebmer/graphql-strong.git"
+  },
+  "bugs": {
+    "url": "https://github.com/calebmer/graphql-strong/issues"
+  },
+  "keywords": [
+    "graphql",
+    "typescript",
+    "schema",
+    "strong",
+    "definition",
+    "define",
+    "api",
+    "types",
+    "typecheck"
+  ],
+  "main": "build/index.js",
+  "typings": "build/index.d.ts",
+  "files": [
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "build"
+  ],
+  "scripts": {
+    "test": "jest",
+    "test-watch": "jest --watch",
+    "build": "rm -rf build && tsc"
+  },
+  "peerDependencies": {
+    "graphql": ">=0.6.0 <1.0.0"
+  },
+  "devDependencies": {
+    "@types/graphql": "^0.8.2",
+    "@types/jest": "^16.0.1",
+    "@types/node": "^6.0.52",
+    "graphql": "^0.8.2",
+    "jest": "^18.0.0",
+    "typescript": "^2.1.4"
+  },
+  "jest": {
+    "transform": {
+      ".ts": "<rootDir>/resources/jest-ts-transform.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts"
+    ],
+    "browser": false,
+    "testEnvironment": "node",
+    "testPathDirs": [
+      "<rootDir>/src"
+    ],
+    "testRegex": "/__tests__/[^.]+-test.ts$"
+  }
+}

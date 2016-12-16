@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "outDir": "build",
+    "rootDir": "src",
+    "target": "es6",
+    "module": "commonjs",
+    "alwaysStrict": true,
+    "newLine": "LF",
+    "declaration": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "strictNullChecks": true
+  },
+  "exclude": [
+    "node_modules",
+    "**/__tests__/*.ts",
+    "**/__tests__/*/*.ts"
+  ]
+}
