@@ -73,7 +73,7 @@ implements StrongGraphQLOutputType<TValue> {
   /**
    * Returns the inner nullable version of this type without mutating anything.
    */
-  public nullable (): StrongGraphQLOutputType<TValue | null | undefined> {
+  public nullable (): StrongGraphQLNullableObjectType<TValue, TContext> {
     return this.ofType
   }
 }
