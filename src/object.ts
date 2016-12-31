@@ -39,8 +39,14 @@ implements StrongGraphQLOutputType<TValue> {
   readonly _strongOutputType = true
   readonly _strongValue = null
 
+  /**
+   * The name of our object type.
+   */
+  public readonly name: string
+
   constructor (nullableType: StrongGraphQLNullableObjectType<TValue, TContext>) {
     super(nullableType)
+    this.name = nullableType.name
   }
 
   // The required type conversion methods.
