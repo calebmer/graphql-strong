@@ -35,8 +35,8 @@ class StrongGraphQLObjectType<TValue, TContext>
 extends GraphQLNonNull<StrongGraphQLNullableObjectType<TValue, TContext>>
 implements StrongGraphQLOutputType<TValue> {
   // The required type flags.
-  readonly _strongType = true
-  readonly _strongOutputType = true
+  readonly _strongType: true = true
+  readonly _strongOutputType: true = true
   readonly _strongValue = null
 
   /**
@@ -95,8 +95,8 @@ class StrongGraphQLNullableObjectType<TValue, TContext>
 extends GraphQLObjectType
 implements StrongGraphQLOutputType<TValue | null | undefined> {
   // The required type flags.
-  readonly _strongType = true
-  readonly _strongOutputType = true
+  readonly _strongType: true = true
+  readonly _strongOutputType: true = true
   readonly _strongValue = null
 
   private readonly _strongConfig: StrongGraphQLObjectTypeConfig<TValue, TContext>
