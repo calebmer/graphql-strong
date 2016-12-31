@@ -1,4 +1,4 @@
-import { GraphQLNonNull, GraphQLObjectType, GraphQLFieldConfigMap, GraphQLFieldConfigArgumentMap } from 'graphql'
+import { GraphQLNonNull, GraphQLObjectType, GraphQLFieldConfigMap, GraphQLFieldConfigArgumentMap, GraphQLSchema, graphql, ExecutionResult } from 'graphql'
 import { StrongGraphQLOutputType, StrongGraphQLInputType } from './type'
 
 /**
@@ -38,6 +38,12 @@ implements StrongGraphQLOutputType<TValue> {
   readonly _strongType: true = true
   readonly _strongOutputType: true = true
   readonly _strongValue = null
+
+  /**
+   * A schema created for executing queries against where the query type is this
+   * object type.
+   */
+  private _schema: GraphQLSchema | null = null
 
   /**
    * The name of our object type.
@@ -81,6 +87,20 @@ implements StrongGraphQLOutputType<TValue> {
    */
   public nullable (): StrongGraphQLOutputType<TValue | null | undefined> {
     return this.ofType
+  }
+
+  /**
+   * Executes a GraphQL query against this type. The schema used for executing
+   * this query uses this object type as the query object type. There is no
+   * mutation or subscription type.
+   *
+   * This can be very useful in testing.
+   */
+  public execute (query: string, value: TValue, context: TContext, variables: { [key: string]: any } = {}, operation?: string): Promise<ExecutionResult> {
+    if (this._schema == null)
+      this._schema = new GraphQLSchema({ query: this.ofType })
+
+    return graphql(this._schema, query, value, context, variables, operation)
   }
 }
 

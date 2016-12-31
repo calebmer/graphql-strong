@@ -1,5 +1,6 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLString } from 'graphql'
 import { StrongGraphQLOutputType, StrongGraphQLInputType } from '../type'
+import { IntegerType } from '../wrap'
 import { createObjectType } from '../object'
 
 const mockOutputType = (): StrongGraphQLOutputType<string> => ({
@@ -193,4 +194,35 @@ test('native object type fields will return fields with correct args', () => {
   expect(fields['bar'].args[1].defaultValue).toBe('jit')
   expect(fields['bar'].args[0].description).toBe('description 1')
   expect(fields['bar'].args[1].description).toBe('description 2')
+})
+
+test('.execute() will execute a query against the object type', async () => {
+  const type = createObjectType({ name: 'Foo' })
+    .field({ name: 'a', type: IntegerType, resolve: () => 1 })
+    .field({ name: 'b', type: IntegerType, resolve: () => 2 })
+    .field({ name: 'c', type: IntegerType, resolve: () => 3 })
+
+  expect(await type.execute(`
+    {
+      x: a
+      y: b
+      z: c
+      ...foo
+    }
+
+    fragment foo on Foo {
+      a
+      b
+      c
+    }
+  `, {}, {})).toEqual({
+    data: {
+      x: 1,
+      y: 2,
+      z: 3,
+      a: 1,
+      b: 2,
+      c: 3,
+    },
+  })
 })
