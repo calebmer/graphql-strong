@@ -34,7 +34,8 @@
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watch",
-    "build": "rm -rf build && tsc"
+    "build": "rm -rf build && tsc",
+    "preversion": "npm run test && npm run build"
   },
   "peerDependencies": {
     "graphql": ">=0.6.0 <1.0.0"
