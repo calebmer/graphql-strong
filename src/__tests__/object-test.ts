@@ -226,3 +226,15 @@ test('.execute() will execute a query against the object type', async () => {
     },
   })
 })
+
+test('.extend() will enhance a type with a function', () => {
+  const type = createObjectType({ name: 'Foo' })
+    .extend(t => t
+      .field({ name: 'a', type: IntegerType, resolve: () => 1 })
+      .field({ name: 'b', type: IntegerType, resolve: () => 2 })
+      .field({ name: 'c', type: IntegerType, resolve: () => 3 }))
+
+  const fields = type.ofType.getFields()
+
+  expect(Object.keys(fields)).toEqual(['a', 'b', 'c'])
+})

@@ -83,6 +83,16 @@ implements StrongGraphQLOutputType<TValue> {
   }
 
   /**
+   * Extends the object type be calling a function which takes the object as an
+   * input and returns an object of the same type. This allows the creation of
+   * simple extensions that leverage the immutable builder pattern used by this
+   * library.
+   */
+  public extend (extension: (type: this) => this): this {
+    return extension(this)
+  }
+
+  /**
    * Returns the inner nullable version of this type without mutating anything.
    */
   public nullable (): StrongGraphQLOutputType<TValue | null | undefined> {
