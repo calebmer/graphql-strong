@@ -100,6 +100,14 @@ implements StrongGraphQLOutputType<TValue> {
   }
 
   /**
+   * Creates a new copy of this type. It is the exact same as the type which
+   * `.clone()` was called on except that the reference is different.
+   */
+  public clone (): StrongGraphQLObjectType<TValue, TContext> {
+    return new StrongGraphQLObjectType(this.ofType.clone())
+  }
+
+  /**
    * Executes a GraphQL query against this type. The schema used for executing
    * this query uses this object type as the query object type. There is no
    * mutation or subscription type.
@@ -230,6 +238,14 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
    */
   public nullable (): this {
     return this
+  }
+
+  /**
+   * Creates a new copy of this type. It is the exact same as the type which
+   * `.clone()` was called on except that the reference is different.
+   */
+  public clone (): StrongGraphQLNullableObjectType<TValue, TContext> {
+    return new StrongGraphQLNullableObjectType(this._strongConfig, this._strongFieldConfigs)
   }
 }
 

@@ -1,4 +1,4 @@
-import { GraphQLSchema, graphql, ExecutionResult } from 'graphql'
+import { GraphQLSchema, graphql, ExecutionResult, GraphQLResolveInfo, defaultFieldResolver, OperationDefinitionNode } from 'graphql'
 import { StrongGraphQLObjectType } from './object'
 
 /**
@@ -17,7 +17,11 @@ export function createSchema <TValue, TContext>(config: StrongGraphQLSchemaConfi
 export interface StrongGraphQLSchemaConfig<TValue, TContext> {
   readonly query: StrongGraphQLObjectType<TValue, TContext>
   readonly mutation?: StrongGraphQLObjectType<TValue, TContext>
-  readonly subscription?: StrongGraphQLObjectType<TValue, TContext>
+
+  /**
+   * Runs only once at the beginning of an execution for this schema.
+   */
+  onExecute? (value: TValue, context: TContext, info: GraphQLResolveInfo): void | Promise<void>
 }
 
 /**
@@ -29,10 +33,44 @@ class StrongGraphQLSchema<TValue, TContext>
 extends GraphQLSchema {
   constructor (config: StrongGraphQLSchemaConfig<TValue, TContext>) {
     super({
-      query: config.query.ofType,
-      mutation: config.mutation && config.mutation.ofType,
-      subscription: config.subscription && config.subscription.ofType,
+      query: config.query.ofType.clone(),
+      mutation: config.mutation && config.mutation.ofType.clone(),
     })
+
+    const { onExecute } = config
+
+    // If we were given an `onExecute` function in the configuration then we
+    // must add it to our root query types.
+    if (onExecute) {
+      const executedOperations = new WeakMap<OperationDefinitionNode, Promise<void>>()
+
+      const rootTypes = [
+        this.getQueryType(),
+        this.getMutationType(),
+      ].filter(Boolean)
+
+      rootTypes.forEach(rootType => {
+        const fields = rootType.getFields()
+
+        for (const fieldName of Object.keys(fields)) {
+          const resolver = fields[fieldName].resolve || defaultFieldResolver
+
+          // Wrap our resolver so that our `onExecute` handler runs if provided.
+          fields[fieldName].resolve = async (source, args, context, info) => {
+            // If we have not yet executed our root level `onExecute` function,
+            // then call it.
+            if (!executedOperations.has(info.operation))
+              executedOperations.set(info.operation, Promise.resolve(onExecute(source, context, info)))
+
+            // Wait for our `onExecute` function to resolve or reject whether
+            // `onExecute` was called here or not.
+            await executedOperations.get(info.operation)
+
+            return await resolver(source, args, context, info)
+          }
+        }
+      })
+    }
   }
 
   /**
