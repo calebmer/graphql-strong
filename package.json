@@ -1,6 +1,6 @@
 {
   "name": "graphql-strong",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Define your GraphQL schemas with confidence that your values are correct.",
   "author": "Caleb Meredith <calebmeredith8@gmail.com>",
   "license": "MIT",
