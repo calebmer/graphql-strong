@@ -14,6 +14,8 @@ export function trimDescription (description: string): string {
  * config object.
  *
  * Creates a new config object instead of mutating the config object passed in.
+ *
+ * We only trim descriptions on plain JavaScript objects.
  */
 export function trimDescriptionsInConfig <T extends { [key: string]: any }>(config: T): T {
   const nextConfig: { [key: string]: any } = {}
@@ -23,7 +25,7 @@ export function trimDescriptionsInConfig <T extends { [key: string]: any }>(conf
     const value = config[key]
 
     // If the value at this key is an object we need to recurse this function.
-    if (value !== null && typeof value === 'object') {
+    if (value !== null && typeof value === 'object' && Object.getPrototypeOf(value) === Object.prototype) {
       nextConfig[key] = trimDescriptionsInConfig(value)
     }
     // If this key is `description` and the value is a string then we need to

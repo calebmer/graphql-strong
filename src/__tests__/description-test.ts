@@ -38,6 +38,10 @@ test('trimDescription will correctly format a multiline string into a descriptio
 })
 
 test('trimDescriptionsInConfig will trim descriptions in nested objects', () => {
+  function NotPlainObject (object) {
+    Object.assign(this, object)
+  }
+
   expect(trimDescriptionsInConfig({
     a: 1,
     b: 2,
@@ -60,6 +64,11 @@ test('trimDescriptionsInConfig will trim descriptions in nested objects', () => 
           h: 5,
           i: 6,
         },
+        j: new NotPlainObject({
+          k: 7,
+          l: 8,
+          description: `    Space allowed!!!     `,
+        }),
       },
     },
   })).toMatchSnapshot()
