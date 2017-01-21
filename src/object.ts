@@ -219,10 +219,10 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
    */
   public _field <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongGraphQLNullableObjectType<TValue, TContext> {
     this._assertUniqueFieldName(config.name)
-    return new StrongGraphQLNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, {
+    return new StrongGraphQLNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, trimDescriptionsInConfig({
       ...config,
       type: () => typeof config.type === 'function' ? config.type().nullable() : config.type.nullable(),
-    }])
+    })])
   }
 
   /**
@@ -231,7 +231,7 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
    */
   public _fieldNonNull <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue>): StrongGraphQLNullableObjectType<TValue, TContext> {
     this._assertUniqueFieldName(config.name)
-    return new StrongGraphQLNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, config])
+    return new StrongGraphQLNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, trimDescriptionsInConfig(config)])
   }
 
   /**
