@@ -1,11 +1,12 @@
 import { GraphQLNonNull, GraphQLEnumType } from 'graphql'
 import { StrongGraphQLInputOutputType } from './type'
+import { trimDescriptionsInConfig } from './description'
 
 /**
  * Creates a type-safe non-null enum GraphQL type.
  */
 export function createEnumType <TValue>(config: StrongGraphQLEnumTypeConfig<TValue>): StrongGraphQLInputOutputType<TValue> {
-  return new StrongGraphQLEnumType<TValue>(new StrongGraphQLNullableEnumType<TValue>(config))
+  return new StrongGraphQLEnumType<TValue>(new StrongGraphQLNullableEnumType<TValue>(trimDescriptionsInConfig(config)))
 }
 
 /**

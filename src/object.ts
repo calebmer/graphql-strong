@@ -1,5 +1,6 @@
 import { GraphQLNonNull, GraphQLObjectType, GraphQLFieldConfigMap, GraphQLFieldConfigArgumentMap, GraphQLSchema, graphql, ExecutionResult } from 'graphql'
 import { StrongGraphQLOutputType, StrongGraphQLInputType } from './type'
+import { trimDescriptionsInConfig } from './description'
 
 /**
  * Creates a strong GraphQL object type with a fluent builder interface.
@@ -10,7 +11,7 @@ import { StrongGraphQLOutputType, StrongGraphQLInputType } from './type'
 export function createObjectType <TValue>(config: StrongGraphQLObjectTypeConfig<TValue, {}>): StrongGraphQLObjectType<TValue, {}>
 export function createObjectType <TValue, TContext>(config: StrongGraphQLObjectTypeConfig<TValue, TContext>): StrongGraphQLObjectType<TValue, TContext>
 export function createObjectType <TValue, TContext>(config: StrongGraphQLObjectTypeConfig<TValue, TContext>): StrongGraphQLObjectType<TValue, TContext> {
-  return new StrongGraphQLObjectType(new StrongGraphQLNullableObjectType(config, []))
+  return new StrongGraphQLObjectType(new StrongGraphQLNullableObjectType(trimDescriptionsInConfig(config), []))
 }
 
 /**

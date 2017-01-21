@@ -1,5 +1,6 @@
 import { ValueNode, GraphQLNonNull, GraphQLScalarType } from 'graphql'
 import { StrongGraphQLOutputType, StrongGraphQLInputOutputType } from './type'
+import { trimDescriptionsInConfig } from './description'
 
 /**
  * Creates a GraphQL scalar type.
@@ -11,7 +12,7 @@ import { StrongGraphQLOutputType, StrongGraphQLInputOutputType } from './type'
 export function createScalarType <TInternalValue, TExternalValue>(config: StrongGraphQLScalarTypeConfigWithoutInput<TInternalValue, TExternalValue>): StrongGraphQLOutputType<TInternalValue>
 export function createScalarType <TInternalValue, TExternalValue>(config: StrongGraphQLScalarTypeConfigWithInput<TInternalValue, TExternalValue>): StrongGraphQLInputOutputType<TInternalValue>
 export function createScalarType <TInternalValue, TExternalValue>(config: StrongGraphQLScalarTypeConfig<TInternalValue, TExternalValue>): StrongGraphQLInputOutputType<TInternalValue> {
-  return new StrongGraphQLScalarType(new StrongGraphQLNullableScalarType(config))
+  return new StrongGraphQLScalarType(new StrongGraphQLNullableScalarType(trimDescriptionsInConfig(config)))
 }
 
 /**
