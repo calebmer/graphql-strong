@@ -14,9 +14,9 @@ export function createListType <TValue>(type: StrongGraphQLInputOutputType<TValu
     _strongInputType: true,
     _strongOutputType: true,
     _strongValue: null,
-    _weakType: () => new GraphQLList(type._weakType()),
-    _weakInputType: () => new GraphQLList(type._weakInputType()),
-    _weakOutputType: () => new GraphQLList(type._weakOutputType()),
+    getWeakType: () => new GraphQLList(type.getWeakType()),
+    getWeakInputType: () => new GraphQLList(type.getWeakInputType()),
+    getWeakOutputType: () => new GraphQLList(type.getWeakOutputType()),
     nullable: () => nullableListType,
   }
   const listType: StrongGraphQLInputOutputType<Array<TValue>> = {
@@ -24,9 +24,9 @@ export function createListType <TValue>(type: StrongGraphQLInputOutputType<TValu
     _strongInputType: true,
     _strongOutputType: true,
     _strongValue: null,
-    _weakType: () => new GraphQLNonNull(new GraphQLList(type._weakType())),
-    _weakInputType: () => new GraphQLNonNull(new GraphQLList(type._weakInputType())),
-    _weakOutputType: () => new GraphQLNonNull(new GraphQLList(type._weakOutputType())),
+    getWeakType: () => new GraphQLNonNull(new GraphQLList(type.getWeakType())),
+    getWeakInputType: () => new GraphQLNonNull(new GraphQLList(type.getWeakInputType())),
+    getWeakOutputType: () => new GraphQLNonNull(new GraphQLList(type.getWeakOutputType())),
     nullable: () => nullableListType,
   }
   return listType

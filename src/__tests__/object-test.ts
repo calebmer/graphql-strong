@@ -7,8 +7,8 @@ const mockOutputType = (): StrongGraphQLOutputType<string> => ({
   _strongType: true,
   _strongOutputType: true,
   _strongValue: null,
-  _weakType: () => GraphQLString,
-  _weakOutputType: () => GraphQLString,
+  getWeakType: () => GraphQLString,
+  getWeakOutputType: () => GraphQLString,
   nullable: () => mockOutputType(),
 })
 
@@ -16,8 +16,8 @@ const mockInputType = (): StrongGraphQLInputType<string> => ({
   _strongType: true,
   _strongInputType: true,
   _strongValue: null,
-  _weakType: () => GraphQLString,
-  _weakInputType: () => GraphQLString,
+  getWeakType: () => GraphQLString,
+  getWeakInputType: () => GraphQLString,
   nullable: () => mockInputType(),
 })
 
@@ -34,24 +34,24 @@ test('.nullable() will return the nullable version of the type', () => {
   expect(type.nullable()).toBe(type.ofType)
 })
 
-test('.getType() returns self', () => {
+test('.getWeakType() returns self', () => {
   const type = createObjectType({ name: 'foo' })
-  expect(type._weakType()).toBe(type)
+  expect(type.getWeakType()).toBe(type)
 })
 
-test('.getOutputType() returns self', () => {
+test('.getWeakOutputType() returns self', () => {
   const type = createObjectType({ name: 'foo' })
-  expect(type._weakOutputType()).toBe(type)
+  expect(type.getWeakOutputType()).toBe(type)
 })
 
-test('.nullable().getType() returns nullable type', () => {
+test('.nullable().getWeakType() returns nullable type', () => {
   const type = createObjectType({ name: 'foo' })
-  expect(type.nullable()._weakType()).toBe(type.ofType)
+  expect(type.nullable().getWeakType()).toBe(type.ofType)
 })
 
-test('.nullable().getOutputType() returns nullable type', () => {
+test('.nullable().getWeakOutputType() returns nullable type', () => {
   const type = createObjectType({ name: 'foo' })
-  expect(type.nullable()._weakOutputType()).toBe(type.ofType)
+  expect(type.nullable().getWeakOutputType()).toBe(type.ofType)
 })
 
 test('.field() will create a new object type', () => {
@@ -123,8 +123,8 @@ test('native object type fields will call for the field type’s output type', (
   const fieldOutputType2 = Object.create(GraphQLString)
   const weakOutputTypeMock1 = jest.fn(() => fieldOutputType1)
   const weakOutputTypeMock2 = jest.fn(() => fieldOutputType2)
-  fieldType1._weakOutputType = weakOutputTypeMock1
-  fieldType2._weakOutputType = weakOutputTypeMock2
+  fieldType1.getWeakOutputType = weakOutputTypeMock1
+  fieldType2.getWeakOutputType = weakOutputTypeMock2
 
   const type =
     createObjectType({ name: 'foo' })

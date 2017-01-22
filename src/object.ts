@@ -57,8 +57,8 @@ implements StrongGraphQLOutputType<TValue> {
   }
 
   // The required type conversion methods.
-  public _weakType (): this { return this }
-  public _weakOutputType (): this { return this }
+  public getWeakType (): this { return this }
+  public getWeakOutputType (): this { return this }
 
   /**
    * Returns a new strong GraphQL object type with a new field. This function
@@ -164,7 +164,7 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
           fields[fieldConfig.name] = {
             description: fieldConfig.description,
             deprecationReason: fieldConfig.deprecationReason,
-            type: typeof fieldConfig.type === 'function' ? fieldConfig.type()._weakOutputType() : fieldConfig.type._weakOutputType(),
+            type: typeof fieldConfig.type === 'function' ? fieldConfig.type().getWeakOutputType() : fieldConfig.type.getWeakOutputType(),
             args: argsDefinition,
             resolve: (source, args, context) => fieldConfig.resolve(source, args, context),
           }
@@ -177,7 +177,7 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
                 const argConfig = (fieldConfig.args as { [key: string]: StrongGraphQLArgConfig<{}> })[argName]
 
                 argsDefinition[argName] = {
-                  type: argConfig.type._weakInputType(),
+                  type: argConfig.type.getWeakInputType(),
                   defaultValue: argConfig.defaultValue,
                   description: argConfig.description,
                 }
@@ -194,8 +194,8 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
   }
 
   // The required type conversion methods.
-  public _weakType (): this { return this }
-  public _weakOutputType (): this { return this }
+  public getWeakType (): this { return this }
+  public getWeakOutputType (): this { return this }
 
   /**
    * Returns true if we already have a field of this name.

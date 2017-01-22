@@ -66,9 +66,9 @@ implements StrongGraphQLInputOutputType<TInternalValue> {
   }
 
   // The required type conversion methods.
-  public _weakType (): this { return this }
-  public _weakInputType (): this { return this }
-  public _weakOutputType (): this { return this }
+  public getWeakType (): this { return this }
+  public getWeakInputType (): this { return this }
+  public getWeakOutputType (): this { return this }
 
   /**
    * Returns the inner nullable variation of this type.
@@ -95,9 +95,9 @@ implements StrongGraphQLInputOutputType<TInternalValue | null | undefined> {
   }
 
   // The required type conversion methods.
-  public _weakType (): this { return this }
-  public _weakInputType (): this { return this }
-  public _weakOutputType (): this { return this }
+  public getWeakType (): this { return this }
+  public getWeakInputType (): this { return this }
+  public getWeakOutputType (): this { return this }
 
   /**
    * Returns self.

@@ -30,10 +30,8 @@ export interface StrongGraphQLType<TValue> {
   /**
    * Gets the vanilla GraphQL-JS type for this strong type. Many types will
    * just return themselves as they extend a GraphQL type.
-   *
-   * This is private, do not use out of this library.
    */
-  _weakType (): GraphQLType
+  getWeakType (): GraphQLType
 
   /**
    * Gets a nullable variation of this type since types are non-null by default.
@@ -56,10 +54,8 @@ export interface StrongGraphQLInputType<TValue> extends StrongGraphQLType<TValue
   /**
    * Gets the vanilla GraphQL-JS input type for this strong type. Many types
    * will just return themselves as they extend a GraphQL type.
-   *
-   * This is private, do not use out of this library.
    */
-  _weakInputType (): GraphQLInputType
+  getWeakInputType (): GraphQLInputType
 
   /**
    * Gets a nullable variation of this type since types are non-null by default.
@@ -82,10 +78,8 @@ export interface StrongGraphQLOutputType<TValue> extends StrongGraphQLType<TValu
   /**
    * Gets the vanilla GraphQL-JS output type for this strong type. Many types
    * will just return themselves as they extend a GraphQL type.
-   *
-   * This is private, do not use out of this library.
    */
-  _weakOutputType (): GraphQLOutputType
+  getWeakOutputType (): GraphQLOutputType
 
   /**
    * Gets a nullable variation of this type since types are non-null by default.
