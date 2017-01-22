@@ -168,6 +168,15 @@ test('native object type fields will pass through arguments into resolve functio
   expect(resolve2.mock.calls).toEqual([[source2, args2, context2]])
 })
 
+test('native object type fields will throw an error if a resolver was not defined', () => {
+  const fields =
+    createObjectType({ name: 'foo' })
+      .field<string>({ name: 'bar', type: mockOutputType() }).ofType.getFields()
+
+  expect(Object.keys(fields)).toEqual(['bar'])
+  expect(() => (fields['bar'].resolve as any)()).toThrowError('Field \'bar\' requires a resolver.')
+})
+
 test('native object type fields will return fields with correct args', () => {
   const fieldType1 = mockOutputType()
   const fieldType2 = mockOutputType()

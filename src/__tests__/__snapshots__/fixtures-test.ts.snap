@@ -1,3 +1,556 @@
+exports[`test interface-fixture.ts 1`] = `
+Array [
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 43,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<number>; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, never, string>\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property \'type\' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type \'StrongGraphQLInputOutputType<number>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'StrongGraphQLInputOutputType<number>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2658,
+              "messageText": "Type \'StrongGraphQLInputOutputType<number>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
+              "next": undefined,
+            },
+          },
+        },
+      },
+    },
+    "start": 1104,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 44,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Person>; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, never, string>\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property \'type\' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type \'StrongGraphQLInterfaceType<Person>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'StrongGraphQLInterfaceType<Person>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2658,
+              "messageText": "Type \'StrongGraphQLInterfaceType<Person>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
+              "next": undefined,
+            },
+          },
+        },
+      },
+    },
+    "start": 1200,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 81,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputType<string>; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, never, string>\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property \'type\' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type \'StrongGraphQLInputType<string>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'StrongGraphQLInputType<string>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2658,
+              "messageText": "Type \'StrongGraphQLInputType<string>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
+              "next": undefined,
+            },
+          },
+        },
+      },
+    },
+    "start": 1323,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 64,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<string | null | undefined>; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, never, string>\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property \'type\' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2658,
+              "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
+              "next": undefined,
+            },
+          },
+        },
+      },
+    },
+    "start": 1823,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 188,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<string>; args: { width: { type: StrongGraphQLI...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInputOutputType<string>; args: { width: { type: StrongGraphQLI...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, never, Image | n...\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2326,
+          "messageText": "Types of property \'type\' are incompatible.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'StrongGraphQLInputOutputType<string>\' is not assignable to type \'StrongGraphQLOutputType<Image | null | undefined> | (() => StrongGraphQLOutputType<Image | null |...\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'StrongGraphQLInputOutputType<string>\' is not assignable to type \'() => StrongGraphQLOutputType<Image | null | undefined>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2658,
+                "messageText": "Type \'StrongGraphQLInputOutputType<string>\' provides no match for the signature \'(): StrongGraphQLOutputType<Image | null | undefined>\'",
+                "next": undefined,
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 2138,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 186,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, never, Image | n...\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2326,
+          "messageText": "Types of property \'args\' are incompatible.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<string>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<string>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property \'width\' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type \'{ type: StrongGraphQLInputOutputType<string>; }\' is not assignable to type \'StrongGraphQLArgConfig<number>\'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2326,
+                    "messageText": "Types of property \'type\' are incompatible.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2322,
+                      "messageText": "Type \'StrongGraphQLInputOutputType<string>\' is not assignable to type \'StrongGraphQLInputType<number>\'.",
+                      "next": Object {
+                        "category": 1,
+                        "code": 2326,
+                        "messageText": "Types of property \'nullable\' are incompatible.",
+                        "next": Object {
+                          "category": 1,
+                          "code": 2322,
+                          "messageText": "Type \'() => StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLInputType<number | null | undefined>\'.",
+                          "next": Object {
+                            "category": 1,
+                            "code": 2322,
+                            "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | null | undefined>\'.",
+                            "next": Object {
+                              "category": 1,
+                              "code": 2326,
+                              "messageText": "Types of property \'nullable\' are incompatible.",
+                              "next": Object {
+                                "category": 1,
+                                "code": 2322,
+                                "messageText": "Type \'() => StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLInputType<number | null | undefined>\'.",
+                                "next": Object {
+                                  "category": 1,
+                                  "code": 2322,
+                                  "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | null | undefined>\'.",
+                                  "next": undefined,
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 2429,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 186,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, never, Image | n...\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2326,
+          "messageText": "Types of property \'args\' are incompatible.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property \'height\' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type \'{ type: StrongGraphQLInputOutputType<string | null | undefined>; }\' is not assignable to type \'StrongGraphQLArgConfig<number | undefined>\'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2326,
+                    "messageText": "Types of property \'type\' are incompatible.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2322,
+                      "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | undefined>\'.",
+                      "next": Object {
+                        "category": 1,
+                        "code": 2326,
+                        "messageText": "Types of property \'nullable\' are incompatible.",
+                        "next": Object {
+                          "category": 1,
+                          "code": 2322,
+                          "messageText": "Type \'() => StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLInputType<number | null | undefined>\'.",
+                          "next": Object {
+                            "category": 1,
+                            "code": 2322,
+                            "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | null | undefined>\'.",
+                            "next": undefined,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 2718,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 45,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; }\' is not assignable to type \'{ readonly args: StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>; }\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2324,
+          "messageText": "Property \'args\' is missing in type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; }\'.",
+          "next": undefined,
+        },
+      },
+    },
+    "start": 3013,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 136,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { height: { type: StrongGraphQLInp...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { height: { type: StrongGraphQLInp...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, never, Image | n...\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2326,
+          "messageText": "Types of property \'args\' are incompatible.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2324,
+                "messageText": "Property \'width\' is missing in type \'{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }\'.",
+                "next": undefined,
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 3164,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 115,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, never, Image | n...\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2326,
+          "messageText": "Types of property \'args\' are incompatible.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2324,
+                "messageText": "Property \'height\' is missing in type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; }\'.",
+                "next": undefined,
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 3406,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 207,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLInpu...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, never, Image | n...\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2326,
+          "messageText": "Types of property \'args\' are incompatible.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; height: { type: Stro...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; height: { type: Stro...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property \'width\' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type \'{ type: StrongGraphQLInputOutputType<number | null | undefined>; }\' is not assignable to type \'StrongGraphQLArgConfig<number>\'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2326,
+                    "messageText": "Types of property \'type\' are incompatible.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2322,
+                      "messageText": "Type \'StrongGraphQLInputOutputType<number | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number>\'.",
+                      "next": Object {
+                        "category": 1,
+                        "code": 2326,
+                        "messageText": "Types of property \'_strongValue\' are incompatible.",
+                        "next": Object {
+                          "category": 1,
+                          "code": 2322,
+                          "messageText": "Type \'number | null | undefined\' is not assignable to type \'number | null\'.",
+                          "next": Object {
+                            "category": 1,
+                            "code": 2322,
+                            "messageText": "Type \'undefined\' is not assignable to type \'number | null\'.",
+                            "next": undefined,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 3640,
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 224,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLOutp...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, never, I...\'.",
+      "next": Object {
+        "category": 1,
+        "code": 2322,
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInterfaceType<Image>; args: { width: { type: StrongGraphQLOutp...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, never, Image | n...\'.",
+        "next": Object {
+          "category": 1,
+          "code": 2326,
+          "messageText": "Types of property \'args\' are incompatible.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type \'{ width: { type: StrongGraphQLOutputType<number>; }; height: { type: StrongGraphQLInputOutputType...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'{ width: { type: StrongGraphQLOutputType<number>; }; height: { type: StrongGraphQLInputOutputType...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property \'width\' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type \'{ type: StrongGraphQLOutputType<number>; }\' is not assignable to type \'StrongGraphQLArgConfig<number>\'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2326,
+                    "messageText": "Types of property \'type\' are incompatible.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2322,
+                      "messageText": "Type \'StrongGraphQLOutputType<number>\' is not assignable to type \'StrongGraphQLInputType<number>\'.",
+                      "next": Object {
+                        "category": 1,
+                        "code": 2324,
+                        "messageText": "Property \'_strongInputType\' is missing in type \'StrongGraphQLOutputType<number>\'.",
+                        "next": undefined,
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 4671,
+  },
+  Object {
+    "category": 1,
+    "code": 2448,
+    "length": 4,
+    "messageText": "Block-scoped variable \'type\' used before its declaration.",
+    "start": 5437,
+  },
+  Object {
+    "category": 1,
+    "code": 2454,
+    "length": 4,
+    "messageText": "Variable \'type\' is used before being assigned.",
+    "start": 5437,
+  },
+]
+`;
+
 exports[`test object-fixture.ts 1`] = `
 Array [
   Object {
@@ -7,23 +560,23 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: ({url}: Image) => string; }' is not assignable to parameter of type 'StrongGraphQLFieldConfig<Image, {}, {}, string>'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: ({url}: Image) => string; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, {}, string>\'.",
       "next": Object {
         "category": 1,
         "code": 2326,
-        "messageText": "Types of property 'type' are incompatible.",
+        "messageText": "Types of property \'type\' are incompatible.",
         "next": Object {
           "category": 1,
           "code": 2322,
-          "messageText": "Type 'StrongGraphQLInputOutputType<number>' is not assignable to type 'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)'.",
+          "messageText": "Type \'StrongGraphQLInputOutputType<number>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'StrongGraphQLInputOutputType<number>' is not assignable to type '() => StrongGraphQLOutputType<string>'.",
+            "messageText": "Type \'StrongGraphQLInputOutputType<number>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
             "next": Object {
               "category": 1,
               "code": 2658,
-              "messageText": "Type 'StrongGraphQLInputOutputType<number>' provides no match for the signature '(): StrongGraphQLOutputType<string>'",
+              "messageText": "Type \'StrongGraphQLInputOutputType<number>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
               "next": undefined,
             },
           },
@@ -39,23 +592,23 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Person, {}>; resolve: ({url}: Image) => string; }' is not assignable to parameter of type 'StrongGraphQLFieldConfig<Image, {}, {}, string>'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Person, {}>; resolve: ({url}: Image) => string; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, {}, string>\'.",
       "next": Object {
         "category": 1,
         "code": 2326,
-        "messageText": "Types of property 'type' are incompatible.",
+        "messageText": "Types of property \'type\' are incompatible.",
         "next": Object {
           "category": 1,
           "code": 2322,
-          "messageText": "Type 'StrongGraphQLObjectType<Person, {}>' is not assignable to type 'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)'.",
+          "messageText": "Type \'StrongGraphQLObjectType<Person, {}>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'StrongGraphQLObjectType<Person, {}>' is not assignable to type '() => StrongGraphQLOutputType<string>'.",
+            "messageText": "Type \'StrongGraphQLObjectType<Person, {}>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
             "next": Object {
               "category": 1,
               "code": 2658,
-              "messageText": "Type 'StrongGraphQLObjectType<Person, {}>' provides no match for the signature '(): StrongGraphQLOutputType<string>'",
+              "messageText": "Type \'StrongGraphQLObjectType<Person, {}>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
               "next": undefined,
             },
           },
@@ -71,23 +624,23 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLInputType<string>; resolve: ({url}: Image) => string; }' is not assignable to parameter of type 'StrongGraphQLFieldConfig<Image, {}, {}, string>'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputType<string>; resolve: ({url}: Image) => string; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, {}, string>\'.",
       "next": Object {
         "category": 1,
         "code": 2326,
-        "messageText": "Types of property 'type' are incompatible.",
+        "messageText": "Types of property \'type\' are incompatible.",
         "next": Object {
           "category": 1,
           "code": 2322,
-          "messageText": "Type 'StrongGraphQLInputType<string>' is not assignable to type 'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)'.",
+          "messageText": "Type \'StrongGraphQLInputType<string>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'StrongGraphQLInputType<string>' is not assignable to type '() => StrongGraphQLOutputType<string>'.",
+            "messageText": "Type \'StrongGraphQLInputType<string>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
             "next": Object {
               "category": 1,
               "code": 2658,
-              "messageText": "Type 'StrongGraphQLInputType<string>' provides no match for the signature '(): StrongGraphQLOutputType<string>'",
+              "messageText": "Type \'StrongGraphQLInputType<string>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
               "next": undefined,
             },
           },
@@ -103,20 +656,25 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: ({size}: Image) => string; }' is not assignable to parameter of type 'StrongGraphQLFieldConfig<Image, {}, {}, number | null | undefined>'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: ({size}: Image) => string; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, {}, number | null | undefined>\'.",
       "next": Object {
         "category": 1,
         "code": 2326,
-        "messageText": "Types of property 'resolve' are incompatible.",
+        "messageText": "Types of property \'resolve\' are incompatible.",
         "next": Object {
           "category": 1,
           "code": 2322,
-          "messageText": "Type '({size}: Image) => string' is not assignable to type '(source: Image, args: {}, context: {}) => number | Promise<number | null | undefined> | null | un...'.",
+          "messageText": "Type \'({size}: Image) => string\' is not assignable to type \'((source: Image, args: {}, context: {}) => number | Promise<number | null | undefined> | null | u...\'.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'string' is not assignable to type 'number | Promise<number | null | undefined> | null | undefined'.",
-            "next": undefined,
+            "messageText": "Type \'({size}: Image) => string\' is not assignable to type \'(source: Image, args: {}, context: {}) => number | Promise<number | null | undefined> | null | un...\'.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type \'string\' is not assignable to type \'number | Promise<number | null | undefined> | null | undefined\'.",
+              "next": undefined,
+            },
           },
         },
       },
@@ -130,24 +688,29 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: ({size}: Image) => number | ...' is not assignable to parameter of type 'StrongGraphQLFieldConfig<Image, {}, {}, number>'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: ({size}: Image) => number | ...\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, {}, number>\'.",
       "next": Object {
         "category": 1,
         "code": 2326,
-        "messageText": "Types of property 'resolve' are incompatible.",
+        "messageText": "Types of property \'resolve\' are incompatible.",
         "next": Object {
           "category": 1,
           "code": 2322,
-          "messageText": "Type '({size}: Image) => number | undefined' is not assignable to type '(source: Image, args: {}, context: {}) => number | Promise<number>'.",
+          "messageText": "Type \'({size}: Image) => number | undefined\' is not assignable to type \'((source: Image, args: {}, context: {}) => number | Promise<number>) | undefined\'.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'number | undefined' is not assignable to type 'number | Promise<number>'.",
+            "messageText": "Type \'({size}: Image) => number | undefined\' is not assignable to type \'(source: Image, args: {}, context: {}) => number | Promise<number>\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type 'undefined' is not assignable to type 'number | Promise<number>'.",
-              "next": undefined,
+              "messageText": "Type \'number | undefined\' is not assignable to type \'number | Promise<number>\'.",
+              "next": Object {
+                "category": 1,
+                "code": 2322,
+                "messageText": "Type \'undefined\' is not assignable to type \'number | Promise<number>\'.",
+                "next": undefined,
+              },
             },
           },
         },
@@ -162,23 +725,23 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLInputOutputType<string | null | undefined>; resolve: ({url}: I...' is not assignable to parameter of type 'StrongGraphQLFieldConfig<Image, {}, {}, string>'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<string | null | undefined>; resolve: ({url}: I...\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, {}, string>\'.",
       "next": Object {
         "category": 1,
         "code": 2326,
-        "messageText": "Types of property 'type' are incompatible.",
+        "messageText": "Types of property \'type\' are incompatible.",
         "next": Object {
           "category": 1,
           "code": 2322,
-          "messageText": "Type 'StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type 'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)'.",
+          "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLOutputType<string> | (() => StrongGraphQLOutputType<string>)\'.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type '() => StrongGraphQLOutputType<string>'.",
+            "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLOutputType<string>\'.",
             "next": Object {
               "category": 1,
               "code": 2658,
-              "messageText": "Type 'StrongGraphQLInputOutputType<string | null | undefined>' provides no match for the signature '(): StrongGraphQLOutputType<string>'",
+              "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' provides no match for the signature \'(): StrongGraphQLOutputType<string>\'",
               "next": undefined,
             },
           },
@@ -194,27 +757,27 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLInputOutputType<string>; args: { width: { type: StrongGraphQLI...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<string>; args: { width: { type: StrongGraphQLI...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLInputOutputType<string>; args: { width: { type: StrongGraphQLI...' is not assignable to type 'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLInputOutputType<string>; args: { width: { type: StrongGraphQLI...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...\'.",
         "next": Object {
           "category": 1,
           "code": 2326,
-          "messageText": "Types of property 'type' are incompatible.",
+          "messageText": "Types of property \'type\' are incompatible.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'StrongGraphQLInputOutputType<string>' is not assignable to type 'StrongGraphQLOutputType<Image | null | undefined> | (() => StrongGraphQLOutputType<Image | null |...'.",
+            "messageText": "Type \'StrongGraphQLInputOutputType<string>\' is not assignable to type \'StrongGraphQLOutputType<Image | null | undefined> | (() => StrongGraphQLOutputType<Image | null |...\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type 'StrongGraphQLInputOutputType<string>' is not assignable to type '() => StrongGraphQLOutputType<Image | null | undefined>'.",
+              "messageText": "Type \'StrongGraphQLInputOutputType<string>\' is not assignable to type \'() => StrongGraphQLOutputType<Image | null | undefined>\'.",
               "next": Object {
                 "category": 1,
                 "code": 2658,
-                "messageText": "Type 'StrongGraphQLInputOutputType<string>' provides no match for the signature '(): StrongGraphQLOutputType<Image | null | undefined>'",
+                "messageText": "Type \'StrongGraphQLInputOutputType<string>\' provides no match for the signature \'(): StrongGraphQLOutputType<Image | null | undefined>\'",
                 "next": undefined,
               },
             },
@@ -231,63 +794,63 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to type 'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...\'.",
         "next": Object {
           "category": 1,
           "code": 2326,
-          "messageText": "Types of property 'args' are incompatible.",
+          "messageText": "Types of property \'args\' are incompatible.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<string>; }; height: { type: StrongGraphQLInputOutpu...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined'.",
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<string>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<string>; }; height: { type: StrongGraphQLInputOutpu...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>'.",
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<string>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
               "next": Object {
                 "category": 1,
                 "code": 2326,
-                "messageText": "Types of property 'width' are incompatible.",
+                "messageText": "Types of property \'width\' are incompatible.",
                 "next": Object {
                   "category": 1,
                   "code": 2322,
-                  "messageText": "Type '{ type: StrongGraphQLInputOutputType<string>; }' is not assignable to type 'StrongGraphQLArgConfig<number>'.",
+                  "messageText": "Type \'{ type: StrongGraphQLInputOutputType<string>; }\' is not assignable to type \'StrongGraphQLArgConfig<number>\'.",
                   "next": Object {
                     "category": 1,
                     "code": 2326,
-                    "messageText": "Types of property 'type' are incompatible.",
+                    "messageText": "Types of property \'type\' are incompatible.",
                     "next": Object {
                       "category": 1,
                       "code": 2322,
-                      "messageText": "Type 'StrongGraphQLInputOutputType<string>' is not assignable to type 'StrongGraphQLInputType<number>'.",
+                      "messageText": "Type \'StrongGraphQLInputOutputType<string>\' is not assignable to type \'StrongGraphQLInputType<number>\'.",
                       "next": Object {
                         "category": 1,
                         "code": 2326,
-                        "messageText": "Types of property 'nullable' are incompatible.",
+                        "messageText": "Types of property \'nullable\' are incompatible.",
                         "next": Object {
                           "category": 1,
                           "code": 2322,
-                          "messageText": "Type '() => StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type '() => StrongGraphQLInputType<number | null | undefined>'.",
+                          "messageText": "Type \'() => StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLInputType<number | null | undefined>\'.",
                           "next": Object {
                             "category": 1,
                             "code": 2322,
-                            "messageText": "Type 'StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type 'StrongGraphQLInputType<number | null | undefined>'.",
+                            "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | null | undefined>\'.",
                             "next": Object {
                               "category": 1,
                               "code": 2326,
-                              "messageText": "Types of property 'nullable' are incompatible.",
+                              "messageText": "Types of property \'nullable\' are incompatible.",
                               "next": Object {
                                 "category": 1,
                                 "code": 2322,
-                                "messageText": "Type '() => StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type '() => StrongGraphQLInputType<number | null | undefined>'.",
+                                "messageText": "Type \'() => StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLInputType<number | null | undefined>\'.",
                                 "next": Object {
                                   "category": 1,
                                   "code": 2322,
-                                  "messageText": "Type 'StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type 'StrongGraphQLInputType<number | null | undefined>'.",
+                                  "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | null | undefined>\'.",
                                   "next": undefined,
                                 },
                               },
@@ -313,51 +876,51 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to type 'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...\'.",
         "next": Object {
           "category": 1,
           "code": 2326,
-          "messageText": "Types of property 'args' are incompatible.",
+          "messageText": "Types of property \'args\' are incompatible.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<number>; }; height: { type: StrongGraphQLInputOutpu...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined'.",
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<number>; }; height: { type: StrongGraphQLInputOutpu...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>'.",
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; height: { type: StrongGraphQLInputOutpu...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
               "next": Object {
                 "category": 1,
                 "code": 2326,
-                "messageText": "Types of property 'height' are incompatible.",
+                "messageText": "Types of property \'height\' are incompatible.",
                 "next": Object {
                   "category": 1,
                   "code": 2322,
-                  "messageText": "Type '{ type: StrongGraphQLInputOutputType<string | null | undefined>; }' is not assignable to type 'StrongGraphQLArgConfig<number | undefined>'.",
+                  "messageText": "Type \'{ type: StrongGraphQLInputOutputType<string | null | undefined>; }\' is not assignable to type \'StrongGraphQLArgConfig<number | undefined>\'.",
                   "next": Object {
                     "category": 1,
                     "code": 2326,
-                    "messageText": "Types of property 'type' are incompatible.",
+                    "messageText": "Types of property \'type\' are incompatible.",
                     "next": Object {
                       "category": 1,
                       "code": 2322,
-                      "messageText": "Type 'StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type 'StrongGraphQLInputType<number | undefined>'.",
+                      "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | undefined>\'.",
                       "next": Object {
                         "category": 1,
                         "code": 2326,
-                        "messageText": "Types of property 'nullable' are incompatible.",
+                        "messageText": "Types of property \'nullable\' are incompatible.",
                         "next": Object {
                           "category": 1,
                           "code": 2322,
-                          "messageText": "Type '() => StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type '() => StrongGraphQLInputType<number | null | undefined>'.",
+                          "messageText": "Type \'() => StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'() => StrongGraphQLInputType<number | null | undefined>\'.",
                           "next": Object {
                             "category": 1,
                             "code": 2322,
-                            "messageText": "Type 'StrongGraphQLInputOutputType<string | null | undefined>' is not assignable to type 'StrongGraphQLInputType<number | null | undefined>'.",
+                            "messageText": "Type \'StrongGraphQLInputOutputType<string | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number | null | undefined>\'.",
                             "next": undefined,
                           },
                         },
@@ -380,15 +943,15 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; resolve: ({imageURL}: Person, {width, h...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; resolve: ({imageURL}: Person, {width, h...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; resolve: ({imageURL}: Person, {width, h...' is not assignable to type '{ readonly args: StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>; }'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; resolve: ({imageURL}: Person, {width, h...\' is not assignable to type \'{ readonly args: StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>; }\'.",
         "next": Object {
           "category": 1,
           "code": 2324,
-          "messageText": "Property 'args' is missing in type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; resolve: ({imageURL}: Person, {width, h...'.",
+          "messageText": "Property \'args\' is missing in type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; resolve: ({imageURL}: Person, {width, h...\'.",
           "next": undefined,
         },
       },
@@ -402,27 +965,27 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { height: { type: StrongGraphQLIn...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { height: { type: StrongGraphQLIn...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { height: { type: StrongGraphQLIn...' is not assignable to type 'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { height: { type: StrongGraphQLIn...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...\'.",
         "next": Object {
           "category": 1,
           "code": 2326,
-          "messageText": "Types of property 'args' are incompatible.",
+          "messageText": "Types of property \'args\' are incompatible.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type '{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined'.",
+            "messageText": "Type \'{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type '{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>'.",
+              "messageText": "Type \'{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
               "next": Object {
                 "category": 1,
                 "code": 2324,
-                "messageText": "Property 'width' is missing in type '{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }'.",
+                "messageText": "Property \'width\' is missing in type \'{ height: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; }\'.",
                 "next": undefined,
               },
             },
@@ -439,27 +1002,27 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to type 'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...\'.",
         "next": Object {
           "category": 1,
           "code": 2326,
-          "messageText": "Types of property 'args' are incompatible.",
+          "messageText": "Types of property \'args\' are incompatible.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<number>; }; }' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined'.",
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<number>; }; }' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>'.",
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; }\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
               "next": Object {
                 "category": 1,
                 "code": 2324,
-                "messageText": "Property 'height' is missing in type '{ width: { type: StrongGraphQLInputOutputType<number>; }; }'.",
+                "messageText": "Property \'height\' is missing in type \'{ width: { type: StrongGraphQLInputOutputType<number>; }; }\'.",
                 "next": undefined,
               },
             },
@@ -476,51 +1039,51 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...' is not assignable to type 'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLInp...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...\'.",
         "next": Object {
           "category": 1,
           "code": 2326,
-          "messageText": "Types of property 'args' are incompatible.",
+          "messageText": "Types of property \'args\' are incompatible.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; height: { type: Stro...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined'.",
+            "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; height: { type: Stro...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type '{ width: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; height: { type: Stro...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>'.",
+              "messageText": "Type \'{ width: { type: StrongGraphQLInputOutputType<number | null | undefined>; }; height: { type: Stro...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
               "next": Object {
                 "category": 1,
                 "code": 2326,
-                "messageText": "Types of property 'width' are incompatible.",
+                "messageText": "Types of property \'width\' are incompatible.",
                 "next": Object {
                   "category": 1,
                   "code": 2322,
-                  "messageText": "Type '{ type: StrongGraphQLInputOutputType<number | null | undefined>; }' is not assignable to type 'StrongGraphQLArgConfig<number>'.",
+                  "messageText": "Type \'{ type: StrongGraphQLInputOutputType<number | null | undefined>; }\' is not assignable to type \'StrongGraphQLArgConfig<number>\'.",
                   "next": Object {
                     "category": 1,
                     "code": 2326,
-                    "messageText": "Types of property 'type' are incompatible.",
+                    "messageText": "Types of property \'type\' are incompatible.",
                     "next": Object {
                       "category": 1,
                       "code": 2322,
-                      "messageText": "Type 'StrongGraphQLInputOutputType<number | null | undefined>' is not assignable to type 'StrongGraphQLInputType<number>'.",
+                      "messageText": "Type \'StrongGraphQLInputOutputType<number | null | undefined>\' is not assignable to type \'StrongGraphQLInputType<number>\'.",
                       "next": Object {
                         "category": 1,
                         "code": 2326,
-                        "messageText": "Types of property '_strongValue' are incompatible.",
+                        "messageText": "Types of property \'_strongValue\' are incompatible.",
                         "next": Object {
                           "category": 1,
                           "code": 2322,
-                          "messageText": "Type 'number | null | undefined' is not assignable to type 'number | null'.",
+                          "messageText": "Type \'number | null | undefined\' is not assignable to type \'number | null\'.",
                           "next": Object {
                             "category": 1,
                             "code": 2322,
-                            "messageText": "Type 'undefined' is not assignable to type 'number | null'.",
+                            "messageText": "Type \'undefined\' is not assignable to type \'number | null\'.",
                             "next": undefined,
                           },
                         },
@@ -540,35 +1103,35 @@ Array [
     "category": 1,
     "code": 2459,
     "length": 5,
-    "messageText": "Type '{}' has no property 'width' and no string index signature.",
+    "messageText": "Type \'{}\' has no property \'width\' and no string index signature.",
     "start": 5929,
   },
   Object {
     "category": 1,
     "code": 2459,
     "length": 6,
-    "messageText": "Type '{}' has no property 'height' and no string index signature.",
+    "messageText": "Type \'{}\' has no property \'height\' and no string index signature.",
     "start": 5936,
   },
   Object {
     "category": 1,
     "code": 2459,
     "length": 1,
-    "messageText": "Type '{ width: number; height: number | undefined; }' has no property 'x' and no string index signature.",
+    "messageText": "Type \'{ width: number; height: number | undefined; }\' has no property \'x\' and no string index signature.",
     "start": 6985,
   },
   Object {
     "category": 1,
     "code": 2459,
     "length": 1,
-    "messageText": "Type '{ width: number; height: number | undefined; }' has no property 'y' and no string index signature.",
+    "messageText": "Type \'{ width: number; height: number | undefined; }\' has no property \'y\' and no string index signature.",
     "start": 6988,
   },
   Object {
     "category": 1,
     "code": 2459,
     "length": 1,
-    "messageText": "Type '{ width: number; height: number | undefined; }' has no property 'z' and no string index signature.",
+    "messageText": "Type \'{ width: number; height: number | undefined; }\' has no property \'z\' and no string index signature.",
     "start": 6991,
   },
   Object {
@@ -578,43 +1141,43 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLOut...' is not assignable to parameter of type 'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLOut...\' is not assignable to parameter of type \'StrongGraphQLFieldConfigWithArgs<Person, { width: number; height: number | undefined; }, {}, Imag...\'.",
       "next": Object {
         "category": 1,
         "code": 2322,
-        "messageText": "Type '{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLOut...' is not assignable to type 'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...'.",
+        "messageText": "Type \'{ name: string; type: StrongGraphQLObjectType<Image, {}>; args: { width: { type: StrongGraphQLOut...\' is not assignable to type \'StrongGraphQLFieldConfig<Person, { width: number; height: number | undefined; }, {}, Image | null...\'.",
         "next": Object {
           "category": 1,
           "code": 2326,
-          "messageText": "Types of property 'args' are incompatible.",
+          "messageText": "Types of property \'args\' are incompatible.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type '{ width: { type: StrongGraphQLOutputType<number>; }; height: { type: StrongGraphQLInputOutputType...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined'.",
+            "messageText": "Type \'{ width: { type: StrongGraphQLOutputType<number>; }; height: { type: StrongGraphQLInputOutputType...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }> | undefined\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type '{ width: { type: StrongGraphQLOutputType<number>; }; height: { type: StrongGraphQLInputOutputType...' is not assignable to type 'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>'.",
+              "messageText": "Type \'{ width: { type: StrongGraphQLOutputType<number>; }; height: { type: StrongGraphQLInputOutputType...\' is not assignable to type \'StrongGraphQLArgsConfig<{ width: number; height: number | undefined; }>\'.",
               "next": Object {
                 "category": 1,
                 "code": 2326,
-                "messageText": "Types of property 'width' are incompatible.",
+                "messageText": "Types of property \'width\' are incompatible.",
                 "next": Object {
                   "category": 1,
                   "code": 2322,
-                  "messageText": "Type '{ type: StrongGraphQLOutputType<number>; }' is not assignable to type 'StrongGraphQLArgConfig<number>'.",
+                  "messageText": "Type \'{ type: StrongGraphQLOutputType<number>; }\' is not assignable to type \'StrongGraphQLArgConfig<number>\'.",
                   "next": Object {
                     "category": 1,
                     "code": 2326,
-                    "messageText": "Types of property 'type' are incompatible.",
+                    "messageText": "Types of property \'type\' are incompatible.",
                     "next": Object {
                       "category": 1,
                       "code": 2322,
-                      "messageText": "Type 'StrongGraphQLOutputType<number>' is not assignable to type 'StrongGraphQLInputType<number>'.",
+                      "messageText": "Type \'StrongGraphQLOutputType<number>\' is not assignable to type \'StrongGraphQLInputType<number>\'.",
                       "next": Object {
                         "category": 1,
                         "code": 2324,
-                        "messageText": "Property '_strongInputType' is missing in type 'StrongGraphQLOutputType<number>'.",
+                        "messageText": "Property \'_strongInputType\' is missing in type \'StrongGraphQLOutputType<number>\'.",
                         "next": undefined,
                       },
                     },
@@ -632,21 +1195,21 @@ Array [
     "category": 1,
     "code": 2339,
     "length": 12,
-    "messageText": "Property 'ImageService' does not exist on type '{}'.",
+    "messageText": "Property \'ImageService\' does not exist on type \'{}\'.",
     "start": 8868,
   },
   Object {
     "category": 1,
     "code": 2448,
     "length": 4,
-    "messageText": "Block-scoped variable 'type' used before its declaration.",
+    "messageText": "Block-scoped variable \'type\' used before its declaration.",
     "start": 9113,
   },
   Object {
     "category": 1,
     "code": 2454,
     "length": 4,
-    "messageText": "Variable 'type' is used before being assigned.",
+    "messageText": "Variable \'type\' is used before being assigned.",
     "start": 9113,
   },
   Object {
@@ -656,28 +1219,33 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: () => Promise<string>; }' is not assignable to parameter of type 'StrongGraphQLFieldConfig<Image, {}, {}, number | null | undefined>'.",
+      "messageText": "Argument of type \'{ name: string; type: StrongGraphQLInputOutputType<number>; resolve: () => Promise<string>; }\' is not assignable to parameter of type \'StrongGraphQLFieldConfig<Image, {}, {}, number | null | undefined>\'.",
       "next": Object {
         "category": 1,
         "code": 2326,
-        "messageText": "Types of property 'resolve' are incompatible.",
+        "messageText": "Types of property \'resolve\' are incompatible.",
         "next": Object {
           "category": 1,
           "code": 2322,
-          "messageText": "Type '() => Promise<string>' is not assignable to type '(source: Image, args: {}, context: {}) => number | Promise<number | null | undefined> | null | un...'.",
+          "messageText": "Type \'() => Promise<string>\' is not assignable to type \'((source: Image, args: {}, context: {}) => number | Promise<number | null | undefined> | null | u...\'.",
           "next": Object {
             "category": 1,
             "code": 2322,
-            "messageText": "Type 'Promise<string>' is not assignable to type 'number | Promise<number | null | undefined> | null | undefined'.",
+            "messageText": "Type \'() => Promise<string>\' is not assignable to type \'(source: Image, args: {}, context: {}) => number | Promise<number | null | undefined> | null | un...\'.",
             "next": Object {
               "category": 1,
               "code": 2322,
-              "messageText": "Type 'Promise<string>' is not assignable to type 'Promise<number | null | undefined>'.",
+              "messageText": "Type \'Promise<string>\' is not assignable to type \'number | Promise<number | null | undefined> | null | undefined\'.",
               "next": Object {
                 "category": 1,
                 "code": 2322,
-                "messageText": "Type 'string' is not assignable to type 'number | null | undefined'.",
-                "next": undefined,
+                "messageText": "Type \'Promise<string>\' is not assignable to type \'Promise<number | null | undefined>\'.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type \'string\' is not assignable to type \'number | null | undefined\'.",
+                  "next": undefined,
+                },
               },
             },
           },

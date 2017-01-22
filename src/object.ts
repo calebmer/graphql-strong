@@ -1,5 +1,6 @@
 import { GraphQLNonNull, GraphQLObjectType, GraphQLFieldConfigMap, GraphQLFieldConfigArgumentMap, GraphQLSchema, graphql, ExecutionResult } from 'graphql'
 import { StrongGraphQLOutputType, StrongGraphQLInputType } from './type'
+import { StrongGraphQLInterfaceType } from './interface'
 import { trimDescriptionsInConfig } from './description'
 
 /**
@@ -15,13 +16,13 @@ export function createObjectType <TValue, TContext>(config: StrongGraphQLObjectT
 }
 
 /**
- * A configuration object to be used when creating object types. Any extra
- * options will go straight into the type config.
+ * A configuration object to be used when creating object types.
  */
 export type StrongGraphQLObjectTypeConfig<TValue, TContext> = {
   readonly name: string,
   readonly description?: string | undefined,
   readonly isTypeOf?: (value: any, context: TContext) => value is TValue,
+  readonly interfaces?: Array<StrongGraphQLInterfaceType<TValue>> | (() => Array<StrongGraphQLInterfaceType<TValue>>),
 }
 
 /**
@@ -36,15 +37,15 @@ class StrongGraphQLObjectType<TValue, TContext>
 extends GraphQLNonNull<StrongGraphQLNullableObjectType<TValue, TContext>>
 implements StrongGraphQLOutputType<TValue> {
   // The required type flags.
-  readonly _strongType: true = true
-  readonly _strongOutputType: true = true
-  readonly _strongValue = null
+  readonly _strongType: true
+  readonly _strongOutputType: true
+  readonly _strongValue: TValue | null
 
   /**
    * A schema created for executing queries against where the query type is this
    * object type.
    */
-  private _schema: GraphQLSchema | null = null
+  private _schema: GraphQLSchema | undefined
 
   /**
    * The name of our object type.
@@ -67,7 +68,7 @@ implements StrongGraphQLOutputType<TValue> {
    * The field created will have a nullable type. To get a non-null field type
    * use `fieldNonNull`.
    */
-  public field <TFieldValue>(config: StrongGraphQLFieldConfigWithoutArgs<TValue, TContext, TFieldValue | null | undefined>): StrongGraphQLObjectType<TValue, TContext>
+  public field <TFieldValue>(config: StrongGraphQLFieldConfig<TValue, {}, TContext, TFieldValue | null | undefined>): StrongGraphQLObjectType<TValue, TContext>
   public field <TFieldValue, TArgs>(config: StrongGraphQLFieldConfigWithArgs<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongGraphQLObjectType<TValue, TContext>
   public field <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongGraphQLObjectType<TValue, TContext> {
     return new StrongGraphQLObjectType(this.ofType._field(config))
@@ -77,7 +78,7 @@ implements StrongGraphQLOutputType<TValue> {
    * Returns a new strong GraphQL object type with a new field. This function
    * does not mutate the type it was called on.
    */
-  public fieldNonNull <TFieldValue>(config: StrongGraphQLFieldConfigWithoutArgs<TValue, TContext, TFieldValue>): StrongGraphQLObjectType<TValue, TContext>
+  public fieldNonNull <TFieldValue>(config: StrongGraphQLFieldConfig<TValue, {}, TContext, TFieldValue>): StrongGraphQLObjectType<TValue, TContext>
   public fieldNonNull <TFieldValue, TArgs>(config: StrongGraphQLFieldConfigWithArgs<TValue, TArgs, TContext, TFieldValue>): StrongGraphQLObjectType<TValue, TContext>
   public fieldNonNull <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue>): StrongGraphQLObjectType<TValue, TContext> {
     return new StrongGraphQLObjectType(this.ofType._fieldNonNull(config))
@@ -134,9 +135,9 @@ class StrongGraphQLNullableObjectType<TValue, TContext>
 extends GraphQLObjectType
 implements StrongGraphQLOutputType<TValue | null | undefined> {
   // The required type flags.
-  readonly _strongType: true = true
-  readonly _strongOutputType: true = true
-  readonly _strongValue = null
+  readonly _strongType: true
+  readonly _strongOutputType: true
+  readonly _strongValue: TValue | null
 
   private readonly _strongConfig: StrongGraphQLObjectTypeConfig<TValue, TContext>
   private readonly _strongFieldConfigs: Array<StrongGraphQLFieldConfig<TValue, {}, TContext, any>>
@@ -145,49 +146,16 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
     config: StrongGraphQLObjectTypeConfig<TValue, TContext>,
     fieldConfigs: Array<StrongGraphQLFieldConfig<TValue, {}, TContext, any>>,
   ) {
+    const { interfaces } = config
     super({
       name: config.name,
       description: config.description,
       isTypeOf: config.isTypeOf,
+      interfaces: interfaces && (() => (typeof interfaces === 'function' ? interfaces() : interfaces).map(({ ofType }) => ofType)),
 
       // We define a thunk which computes our fields from the fields config
       // array we’ve built.
-      fields: (): GraphQLFieldConfigMap<TValue, TContext> => {
-        const fields: GraphQLFieldConfigMap<TValue, TContext> = {}
-
-        for (const fieldConfig of fieldConfigs) {
-          // Create an args object that we will give to our field config. This
-          // arguments object will be mutated later and filled with argument
-          // configs.
-          const argsDefinition: GraphQLFieldConfigArgumentMap = {}
-
-          fields[fieldConfig.name] = {
-            description: fieldConfig.description,
-            deprecationReason: fieldConfig.deprecationReason,
-            type: typeof fieldConfig.type === 'function' ? fieldConfig.type().getWeakOutputType() : fieldConfig.type.getWeakOutputType(),
-            args: argsDefinition,
-            resolve: (source, args, context) => fieldConfig.resolve(source, args, context),
-          }
-
-          // If the field has defined some arguments, loop through the arguments
-          // that exist and add them to the `args` object.
-          if (fieldConfig.args) {
-            for (const argName in fieldConfig.args) {
-              if (fieldConfig.args.hasOwnProperty(argName)) {
-                const argConfig = (fieldConfig.args as { [key: string]: StrongGraphQLArgConfig<{}> })[argName]
-
-                argsDefinition[argName] = {
-                  type: argConfig.type.getWeakInputType(),
-                  defaultValue: argConfig.defaultValue,
-                  description: argConfig.description,
-                }
-              }
-            }
-          }
-        }
-
-        return fields
-      },
+      fields: () => createWeakFieldMap(fieldConfigs),
     })
     this._strongConfig = config
     this._strongFieldConfigs = fieldConfigs
@@ -273,23 +241,69 @@ export type StrongGraphQLArgConfig<TValue> = {
  *
  * Arguments are optional.
  */
+// TODO: Refactor this type so that we can require resolvers in the type.
 export type StrongGraphQLFieldConfig<TSourceValue, TArgs, TContext, TValue> = {
   readonly name: string,
   readonly description?: string | undefined,
   readonly deprecationReason?: string | undefined,
   readonly type: StrongGraphQLOutputType<TValue> | (() => StrongGraphQLOutputType<TValue>),
   readonly args?: StrongGraphQLArgsConfig<TArgs>,
-  readonly resolve: (source: TSourceValue, args: TArgs, context: TContext) => TValue | Promise<TValue>,
+  readonly resolve?: (source: TSourceValue, args: TArgs, context: TContext) => TValue | Promise<TValue>,
 }
-
-/**
- * A single field configuration except for you don’t need the arguments.
- */
-export type StrongGraphQLFieldConfigWithoutArgs<TSourceValue, TContext, TValue> = StrongGraphQLFieldConfig<TSourceValue, {}, TContext, TValue>
 
 /**
  * A single field configuration except the arguments are required.
  */
 export type StrongGraphQLFieldConfigWithArgs<TSourceValue, TArgs, TContext, TValue> = StrongGraphQLFieldConfig<TSourceValue, TArgs, TContext, TValue> & {
   readonly args: StrongGraphQLArgsConfig<TArgs>,
+}
+
+/**
+ * Creates a weak field map using an array of strong GraphQL field configs. This
+ * is generally called within a field thunk.
+ *
+ * This is private API and not exposed to users.
+ */
+export function createWeakFieldMap <TValue, TContext>(
+  fieldConfigs: Array<StrongGraphQLFieldConfig<TValue, {}, TContext, any>>,
+): GraphQLFieldConfigMap<TValue, TContext> {
+  const fields: GraphQLFieldConfigMap<TValue, TContext> = {}
+
+  for (const fieldConfig of fieldConfigs) {
+    // Create an args object that we will give to our field config. This
+    // arguments object will be mutated later and filled with argument
+    // configs.
+    const argsDefinition: GraphQLFieldConfigArgumentMap = {}
+
+    fields[fieldConfig.name] = {
+      description: fieldConfig.description,
+      deprecationReason: fieldConfig.deprecationReason,
+      type: typeof fieldConfig.type === 'function' ? fieldConfig.type().getWeakOutputType() : fieldConfig.type.getWeakOutputType(),
+      args: argsDefinition,
+      resolve: (source, args, context) => {
+        if (!fieldConfig.resolve)
+          throw new Error(`Field '${fieldConfig.name}' requires a resolver.`)
+
+        return fieldConfig.resolve(source, args, context)
+      },
+    }
+
+    // If the field has defined some arguments, loop through the arguments
+    // that exist and add them to the `args` object.
+    if (fieldConfig.args) {
+      for (const argName in fieldConfig.args) {
+        if (fieldConfig.args.hasOwnProperty(argName)) {
+          const argConfig = (fieldConfig.args as { [key: string]: StrongGraphQLArgConfig<{}> })[argName]
+
+          argsDefinition[argName] = {
+            type: argConfig.type.getWeakInputType(),
+            defaultValue: argConfig.defaultValue,
+            description: argConfig.description,
+          }
+        }
+      }
+    }
+  }
+
+  return fields
 }
