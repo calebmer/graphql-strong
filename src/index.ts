@@ -17,15 +17,9 @@ export {
   StrongGraphQLArgsConfig,
   StrongGraphQLArgConfig,
   StrongGraphQLFieldConfig,
+  StrongGraphQLFieldConfigWithoutArgs,
   StrongGraphQLFieldConfigWithArgs,
 } from './object'
-
-export {
-  createInterfaceType,
-  StrongGraphQLInterfaceTypeConfig,
-  StrongGraphQLInterfaceType,
-  StrongGraphQLNullableInterfaceType,
-} from './interface'
 
 export {
   createEnumType,
