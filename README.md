@@ -1,5 +1,7 @@
 # Strong GraphQL
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/calebmer/graphql-strong.svg)](https://greenkeeper.io/)
+
 [![Package on npm](https://img.shields.io/npm/v/graphql-strong.svg?style=flat)](https://www.npmjs.com/package/graphql-strong)
 
 One of the biggest reasons to use [GraphQL](http://graphql.org/) is its static type system. This type system makes it easy for GraphQL clients to do interesting optimizations and allows for powerful developer tools. Including GraphQL API development tools.
