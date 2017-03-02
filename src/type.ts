@@ -1,4 +1,4 @@
-import { GraphQLType, GraphQLInputType, GraphQLOutputType } from 'graphql'
+import { GraphQLType, GraphQLInputType, GraphQLOutputType } from 'graphql';
 
 /**
  * A strong GraphQL type which when composed with other strong GraphQL types
@@ -15,7 +15,7 @@ export interface StrongGraphQLType<TValue> {
    *
    * This is a private field and may be changed or removed at any time.
    */
-  readonly _strongType: true
+  readonly _strongType: true;
 
   /**
    * Serves as a flag in the type system so that two different
@@ -25,19 +25,19 @@ export interface StrongGraphQLType<TValue> {
    * This value will always be null, it is useless outside of the type system,
    * private, and may be changed or removed at any time.
    */
-  readonly _strongValue: TValue | null
+  readonly _strongValue: TValue | null;
 
   /**
    * Gets the vanilla GraphQL-JS type for this strong type. Many types will
    * just return themselves as they extend a GraphQL type.
    */
-  getWeakType (): GraphQLType
+  getWeakType(): GraphQLType;
 
   /**
    * Gets a nullable variation of this type since types are non-null by default.
    * If this type is already nullable, the type may return itself.
    */
-  nullable (): StrongGraphQLType<TValue | null | undefined>
+  nullable(): StrongGraphQLType<TValue | null | undefined>;
 }
 
 /**
@@ -49,19 +49,19 @@ export interface StrongGraphQLInputType<TValue> extends StrongGraphQLType<TValue
    * A flag that marks these objects as an input type. We never use this outside
    * of the type system. It is private and may be removed at any time.
    */
-  readonly _strongInputType: true
+  readonly _strongInputType: true;
 
   /**
    * Gets the vanilla GraphQL-JS input type for this strong type. Many types
    * will just return themselves as they extend a GraphQL type.
    */
-  getWeakInputType (): GraphQLInputType
+  getWeakInputType(): GraphQLInputType;
 
   /**
    * Gets a nullable variation of this type since types are non-null by default.
    * If this type is already nullable, the type may return itself.
    */
-  nullable (): StrongGraphQLInputType<TValue | null | undefined>
+  nullable(): StrongGraphQLInputType<TValue | null | undefined>;
 }
 
 /**
@@ -73,19 +73,19 @@ export interface StrongGraphQLOutputType<TValue> extends StrongGraphQLType<TValu
    * A flag that marks these objects as an input type. We never use this outside
    * of the type system. It is private and may be removed at any time.
    */
-  readonly _strongOutputType: true
+  readonly _strongOutputType: true;
 
   /**
    * Gets the vanilla GraphQL-JS output type for this strong type. Many types
    * will just return themselves as they extend a GraphQL type.
    */
-  getWeakOutputType (): GraphQLOutputType
+  getWeakOutputType(): GraphQLOutputType;
 
   /**
    * Gets a nullable variation of this type since types are non-null by default.
    * If this type is already nullable, the type may return itself.
    */
-  nullable (): StrongGraphQLOutputType<TValue | null | undefined>
+  nullable(): StrongGraphQLOutputType<TValue | null | undefined>;
 }
 
 /**
@@ -97,5 +97,5 @@ export interface StrongGraphQLInputOutputType<TValue> extends StrongGraphQLType<
    * Gets a nullable variation of this type since types are non-null by default.
    * If this type is already nullable, the type may return itself.
    */
-  nullable (): StrongGraphQLInputOutputType<TValue | null | undefined>
+  nullable(): StrongGraphQLInputOutputType<TValue | null | undefined>;
 }

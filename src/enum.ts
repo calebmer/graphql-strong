@@ -1,12 +1,12 @@
-import { GraphQLNonNull, GraphQLEnumType } from 'graphql'
-import { StrongGraphQLInputOutputType } from './type'
-import { trimDescriptionsInConfig } from './description'
+import { GraphQLNonNull, GraphQLEnumType } from 'graphql';
+import { StrongGraphQLInputOutputType } from './type';
+import { trimDescriptionsInConfig } from './description';
 
 /**
  * Creates a type-safe non-null enum GraphQL type.
  */
 export function createEnumType <TValue>(config: StrongGraphQLEnumTypeConfig<TValue>): StrongGraphQLInputOutputType<TValue> {
-  return new StrongGraphQLEnumType<TValue>(new StrongGraphQLNullableEnumType<TValue>(trimDescriptionsInConfig(config)))
+  return new StrongGraphQLEnumType<TValue>(new StrongGraphQLNullableEnumType<TValue>(trimDescriptionsInConfig(config)));
 }
 
 /**
@@ -22,7 +22,7 @@ export type StrongGraphQLEnumTypeConfig<TValue> = {
       readonly deprecationReason?: string | undefined,
     },
   },
-}
+};
 
 /**
  * The non-null strong GraphQL enum type object.
@@ -31,25 +31,25 @@ class StrongGraphQLEnumType<TValue>
 extends GraphQLNonNull<StrongGraphQLNullableEnumType<TValue>>
 implements StrongGraphQLInputOutputType<TValue> {
   // The required type flags.
-  readonly _strongType = true
-  readonly _strongInputType = true
-  readonly _strongOutputType = true
-  readonly _strongValue = null
+  readonly _strongType = true;
+  readonly _strongInputType = true;
+  readonly _strongOutputType = true;
+  readonly _strongValue = null;
 
-  constructor (nullableType: StrongGraphQLNullableEnumType<TValue>) {
-    super(nullableType)
+  constructor(nullableType: StrongGraphQLNullableEnumType<TValue>) {
+    super(nullableType);
   }
 
   // The required type conversion methods.
-  public getWeakType (): this { return this }
-  public getWeakInputType (): this { return this }
-  public getWeakOutputType (): this { return this }
+  public getWeakType(): this { return this; }
+  public getWeakInputType(): this { return this; }
+  public getWeakOutputType(): this { return this; }
 
   /**
    * Returns the inner nullable variation of this type.
    */
-  public nullable (): StrongGraphQLInputOutputType<TValue | null | undefined> {
-    return this.ofType
+  public nullable(): StrongGraphQLInputOutputType<TValue | null | undefined> {
+    return this.ofType;
   }
 }
 
@@ -60,24 +60,24 @@ class StrongGraphQLNullableEnumType<TValue>
 extends GraphQLEnumType
 implements StrongGraphQLInputOutputType<TValue | null | undefined> {
   // The required type flags.
-  readonly _strongType = true
-  readonly _strongInputType = true
-  readonly _strongOutputType = true
-  readonly _strongValue = null
+  readonly _strongType = true;
+  readonly _strongInputType = true;
+  readonly _strongOutputType = true;
+  readonly _strongValue = null;
 
-  constructor (config: StrongGraphQLEnumTypeConfig<TValue>) {
-    super(config)
+  constructor(config: StrongGraphQLEnumTypeConfig<TValue>) {
+    super(config);
   }
 
   // The required type conversion methods.
-  public getWeakType (): this { return this }
-  public getWeakInputType (): this { return this }
-  public getWeakOutputType (): this { return this }
+  public getWeakType(): this { return this; }
+  public getWeakInputType(): this { return this; }
+  public getWeakOutputType(): this { return this; }
 
   /**
    * Returns self.
    */
-  public nullable (): this {
-    return this
+  public nullable(): this {
+    return this;
   }
 }

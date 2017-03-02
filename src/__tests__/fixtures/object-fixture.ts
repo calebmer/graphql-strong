@@ -7,36 +7,36 @@ import {
   IntegerType,
   createNullableType,
   createObjectType,
-} from '../../index'
+} from '../../index';
 
 interface Person {
-  name: string
-  email: string
-  imageURL?: string
+  name: string;
+  email: string;
+  imageURL?: string;
 }
 
 interface Image {
-  url: string
-  size?: number
+  url: string;
+  size?: number;
 }
 
 interface Context {
   ImageService: {
     cropImage: (url: string, size: number) => Image,
-  },
+  };
 }
 
 const PersonType = createObjectType<Person>({
   name: 'Person',
-})
+});
 
 const PersonTypeWithContext = createObjectType<Person, Context>({
   name: 'Person',
-})
+});
 
 const ImageType = createObjectType<Image>({
   name: 'Image',
-})
+});
 
 // All good image
 ImageType
@@ -49,7 +49,7 @@ ImageType
     name: 'size',
     type: FloatType,
     resolve: ({ size }) => size,
-  })
+  });
 
 // All good person
 PersonType
@@ -79,7 +79,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Wrong type 1
 ImageType
@@ -87,7 +87,7 @@ ImageType
     name: 'url',
     type: FloatType,
     resolve: ({ url }) => url,
-  })
+  });
 
 // Wrong type 2
 ImageType
@@ -95,7 +95,7 @@ ImageType
     name: 'url',
     type: PersonType,
     resolve: ({ url }) => url,
-  })
+  });
 
 // No input types in output type position
 ImageType
@@ -103,7 +103,7 @@ ImageType
     name: 'url',
     type: (null as any) as StrongGraphQLInputType<string>,
     resolve: ({ url }) => url,
-  })
+  });
 
 // Input-output types in output type position ok
 ImageType
@@ -111,7 +111,7 @@ ImageType
     name: 'url',
     type: (null as any) as StrongGraphQLInputOutputType<string>,
     resolve: ({ url }) => url,
-  })
+  });
 
 // Bad resolve return 1
 ImageType
@@ -119,7 +119,7 @@ ImageType
     name: 'size',
     type: FloatType,
     resolve: ({ size }) => 'not a number!',
-  })
+  });
 
 // Bad resolve return 2
 ImageType
@@ -127,7 +127,7 @@ ImageType
     name: 'size',
     type: FloatType,
     resolve: ({ size }) => size,
-  })
+  });
 
 // Non-null field configured to be createNullableType
 ImageType
@@ -135,7 +135,7 @@ ImageType
     name: 'url',
     type: createNullableType(StringType),
     resolve: ({ url }) => url,
-  })
+  });
 
 // Nullable type in non-null field
 ImageType
@@ -143,7 +143,7 @@ ImageType
     name: 'url',
     type: createNullableType(StringType),
     resolve: ({ url }) => url,
-  })
+  });
 
 // Nullable type in createNullableType field
 ImageType
@@ -151,7 +151,7 @@ ImageType
     name: 'size',
     type: createNullableType(FloatType),
     resolve: ({ size }) => size,
-  })
+  });
 
 // Field with arguments wrong type
 PersonType
@@ -171,7 +171,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Arguments wrong type 1
 PersonType
@@ -191,7 +191,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Arguments wrong type 2
 PersonType
@@ -211,7 +211,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Missing arguments definition
 PersonType
@@ -223,7 +223,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Missing single argument 1
 PersonType
@@ -240,7 +240,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Missing single argument 2
 PersonType
@@ -257,7 +257,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Nullable argument in non-null position
 PersonType
@@ -277,7 +277,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // No generic arguments type
 PersonType
@@ -297,7 +297,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Extra argument definitions
 PersonType
@@ -320,7 +320,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Extra argument definitions don’t type-check
 PersonType
@@ -343,7 +343,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Argument input type passes
 PersonType
@@ -363,7 +363,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Argument output type fails
 PersonType
@@ -383,7 +383,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Argument input-output type fails
 PersonType
@@ -403,7 +403,7 @@ PersonType
       width,
       height,
     } : null,
-  })
+  });
 
 // Type with context passes
 PersonTypeWithContext
@@ -412,7 +412,7 @@ PersonTypeWithContext
     type: ImageType,
     resolve: ({ imageURL }, args, context) =>
       imageURL ? context.ImageService.cropImage(imageURL, 50) : null,
-  })
+  });
 
 // Type without context fails
 PersonType
@@ -421,7 +421,7 @@ PersonType
     type: ImageType,
     resolve: ({ imageURL }, args, context) =>
       imageURL ? context.ImageService.cropImage(imageURL, 50) : null,
-  })
+  });
 
 // Un-thunked recursion fails
 {
@@ -430,9 +430,9 @@ PersonType
   })
     .fieldNonNull<Person>({
       name: 'recursive',
-      type: type,
+      type,
       resolve: value => value,
-    })
+    });
 }
 
 // Thunked recursion passes
@@ -444,7 +444,7 @@ PersonType
       name: 'recursive',
       type: () => type,
       resolve: value => value,
-    })
+    });
 }
 
 // Returns a promise passes
@@ -453,7 +453,7 @@ ImageType
     name: 'size',
     type: FloatType,
     resolve: ({ size }) => Promise.resolve(size),
-  })
+  });
 
 // Returns a promise of a different type fails
 ImageType
@@ -461,4 +461,4 @@ ImageType
     name: 'size',
     type: FloatType,
     resolve: () => Promise.resolve('not a number!'),
-  })
+  });

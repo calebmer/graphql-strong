@@ -1,4 +1,4 @@
-import { trimDescription, trimDescriptionsInConfig } from '../description'
+import { trimDescription, trimDescriptionsInConfig } from '../description';
 
 test('trimDescription will correctly format a multiline string into a description', () => {
   expect(trimDescription(`
@@ -34,12 +34,14 @@ test('trimDescription will correctly format a multiline string into a descriptio
 
     - Cras dapibus sem id vulputate commodo.
     - Ut viverra ipsum eget sem dignissim porttitor.
-  `)).toMatchSnapshot()
-})
+  `)).toMatchSnapshot();
+});
 
 test('trimDescriptionsInConfig will trim descriptions in nested objects', () => {
-  function NotPlainObject (object) {
-    Object.assign(this, object)
+  class NotPlainObject {
+    constructor(object) {
+      Object.assign(this, object);
+    }
   }
 
   expect(trimDescriptionsInConfig({
@@ -71,5 +73,5 @@ test('trimDescriptionsInConfig will trim descriptions in nested objects', () => 
         }),
       },
     },
-  })).toMatchSnapshot()
-})
+  })).toMatchSnapshot();
+});

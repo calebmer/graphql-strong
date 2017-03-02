@@ -32,10 +32,13 @@
     "build"
   ],
   "scripts": {
+    "preversion": "npm run ci",
+    "prepublish": "npm run build",
+    "lint": "tslint 'src/**/*.ts'",
     "test": "jest",
     "test-watch": "jest --watch",
-    "build": "rm -rf build && tsc",
-    "preversion": "npm run test && npm run build"
+    "ci": "npm run lint && npm run test",
+    "build": "rm -rf build && tsc"
   },
   "peerDependencies": {
     "graphql": ">=0.6.0 <1.0.0"
@@ -46,6 +49,7 @@
     "@types/node": "^6.0.52",
     "graphql": "^0.8.2",
     "jest": "^18.0.0",
+    "tslint": "^4.5.1",
     "typescript": "^2.2.1"
   },
   "jest": {
