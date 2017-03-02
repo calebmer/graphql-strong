@@ -11,13 +11,19 @@ const compilerOptions: ts.CompilerOptions = {
 };
 
 const fixturesDir = path.resolve(__dirname, 'fixtures');
+const fixtureNames = fs.readdirSync(fixturesDir);
+const fixturePaths = fixtureNames.map(name => path.resolve(fixturesDir, name));
+const program = ts.createProgram(fixturePaths, compilerOptions);
+const emitResult = program.emit();
+const allDiagnostics = [...ts.getPreEmitDiagnostics(program), ...emitResult.diagnostics];
 
-fs.readdirSync(fixturesDir).forEach(name => {
+fixtureNames.forEach((name, i) => {
   test(name, () => {
-    const fixtureFileName = path.join(fixturesDir, name);
-    const program = ts.createProgram([fixtureFileName], compilerOptions);
-    const emitResult = program.emit();
-    const allDiagnostics = [...ts.getPreEmitDiagnostics(program), ...emitResult.diagnostics];
-    expect(allDiagnostics.map(({ file, ...rest }) => rest)).toMatchSnapshot();
+    const diagnostics =
+      allDiagnostics
+        .filter(({ file }) => file.fileName === fixturePaths[i])
+        .map(({ file, ...rest }) => rest);
+
+    expect(diagnostics).toMatchSnapshot();
   });
 });
