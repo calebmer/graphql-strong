@@ -12,18 +12,20 @@ const compilerOptions: ts.CompilerOptions = {
 
 const fixturesDir = path.resolve(__dirname, 'fixtures');
 const fixtureNames = fs.readdirSync(fixturesDir);
-const fixturePaths = fixtureNames.map(name => path.resolve(fixturesDir, name));
-const program = ts.createProgram(fixturePaths, compilerOptions);
+const fixtureFileNames = fixtureNames.map(name => path.resolve(fixturesDir, name));
+const fixtureFiles = fixtureFileNames.map(fileName => fs.readFileSync(fileName, 'utf8'));
+const program = ts.createProgram(fixtureFileNames, compilerOptions);
 const emitResult = program.emit();
 const allDiagnostics = [...ts.getPreEmitDiagnostics(program), ...emitResult.diagnostics];
 
 fixtureNames.forEach((name, i) => {
   test(name, () => {
-    const diagnostics =
-      allDiagnostics
-        .filter(({ file }) => file.fileName === fixturePaths[i])
-        .map(({ file, ...rest }) => rest);
-
+    const diagnostics = allDiagnostics
+      .filter(({ file }) => file.fileName === fixtureFileNames[i])
+      .map(({ file, ...diagnostic }) => ({
+        ...diagnostic,
+        text: file.text.slice(diagnostic.start, diagnostic.start + diagnostic.length),
+      }));
     expect(diagnostics).toMatchSnapshot();
   });
 });

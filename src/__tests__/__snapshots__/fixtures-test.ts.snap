@@ -33,6 +33,11 @@ Array [
       },
     },
     "start": 1550,
+    "text": "{
+    name: 'url',
+    type: FloatType,
+    resolve: ({ url }) => url,
+  }",
   },
   Object {
     "category": 1,
@@ -65,6 +70,11 @@ Array [
       },
     },
     "start": 1678,
+    "text": "{
+    name: 'url',
+    type: PersonType,
+    resolve: ({ url }) => url,
+  }",
   },
   Object {
     "category": 1,
@@ -97,6 +107,11 @@ Array [
       },
     },
     "start": 1833,
+    "text": "{
+    name: 'url',
+    type: (null as any) as StrongGraphQLInputType<string>,
+    resolve: ({ url }) => url,
+  }",
   },
   Object {
     "category": 1,
@@ -124,6 +139,11 @@ Array [
       },
     },
     "start": 2205,
+    "text": "{
+    name: 'size',
+    type: FloatType,
+    resolve: ({ size }) => 'not a number!',
+  }",
   },
   Object {
     "category": 1,
@@ -156,6 +176,11 @@ Array [
       },
     },
     "start": 2355,
+    "text": "{
+    name: 'size',
+    type: FloatType,
+    resolve: ({ size }) => size,
+  }",
   },
   Object {
     "category": 1,
@@ -188,6 +213,11 @@ Array [
       },
     },
     "start": 2711,
+    "text": "{
+    name: 'url',
+    type: createNullableType(StringType),
+    resolve: ({ url }) => url,
+  }",
   },
   Object {
     "category": 1,
@@ -225,6 +255,23 @@ Array [
       },
     },
     "start": 3092,
+    "text": "{
+    name: 'image',
+    type: StringType,
+    args: {
+      width: {
+        type: IntegerType,
+      },
+      height: {
+        type: createNullableType(IntegerType),
+      },
+    },
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -307,6 +354,23 @@ Array [
       },
     },
     "start": 3509,
+    "text": "{
+    name: 'image',
+    type: ImageType,
+    args: {
+      width: {
+        type: StringType,
+      },
+      height: {
+        type: createNullableType(IntegerType),
+      },
+    },
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -374,6 +438,23 @@ Array [
       },
     },
     "start": 3924,
+    "text": "{
+    name: 'image',
+    type: ImageType,
+    args: {
+      width: {
+        type: IntegerType,
+      },
+      height: {
+        type: createNullableType(StringType),
+      },
+    },
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -396,6 +477,15 @@ Array [
       },
     },
     "start": 4345,
+    "text": "{
+    name: 'image',
+    type: ImageType,
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -433,6 +523,20 @@ Array [
       },
     },
     "start": 4622,
+    "text": "{
+    name: 'image',
+    type: ImageType,
+    args: {
+      height: {
+        type: createNullableType(IntegerType),
+      },
+    },
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -470,6 +574,20 @@ Array [
       },
     },
     "start": 4990,
+    "text": "{
+    name: 'image',
+    type: ImageType,
+    args: {
+      width: {
+        type: IntegerType,
+      },
+    },
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -537,6 +655,23 @@ Array [
       },
     },
     "start": 5350,
+    "text": "{
+    name: 'image',
+    type: ImageType,
+    args: {
+      width: {
+        type: createNullableType(IntegerType),
+      },
+      height: {
+        type: createNullableType(IntegerType),
+      },
+    },
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -544,6 +679,7 @@ Array [
     "length": 5,
     "messageText": "Type '{}' has no property 'width' and no string index signature.",
     "start": 5956,
+    "text": "width",
   },
   Object {
     "category": 1,
@@ -551,6 +687,7 @@ Array [
     "length": 6,
     "messageText": "Type '{}' has no property 'height' and no string index signature.",
     "start": 5963,
+    "text": "height",
   },
   Object {
     "category": 1,
@@ -558,6 +695,7 @@ Array [
     "length": 1,
     "messageText": "Type '{ width: number; height: number | undefined; }' has no property 'x' and no string index signature.",
     "start": 7014,
+    "text": "x",
   },
   Object {
     "category": 1,
@@ -565,6 +703,7 @@ Array [
     "length": 1,
     "messageText": "Type '{ width: number; height: number | undefined; }' has no property 'y' and no string index signature.",
     "start": 7017,
+    "text": "y",
   },
   Object {
     "category": 1,
@@ -572,6 +711,7 @@ Array [
     "length": 1,
     "messageText": "Type '{ width: number; height: number | undefined; }' has no property 'z' and no string index signature.",
     "start": 7020,
+    "text": "z",
   },
   Object {
     "category": 1,
@@ -629,6 +769,23 @@ Array [
       },
     },
     "start": 7670,
+    "text": "{
+    name: 'image',
+    type: ImageType,
+    args: {
+      width: {
+        type: (null as any) as StrongGraphQLOutputType<number>,
+      },
+      height: {
+        type: createNullableType(IntegerType),
+      },
+    },
+    resolve: ({ imageURL }, { width, height }) => imageURL ? {
+      url: imageURL,
+      width,
+      height,
+    } : null,
+  }",
   },
   Object {
     "category": 1,
@@ -636,6 +793,7 @@ Array [
     "length": 12,
     "messageText": "Property 'ImageService' does not exist on type '{}'.",
     "start": 8902,
+    "text": "ImageService",
   },
   Object {
     "category": 1,
@@ -643,6 +801,7 @@ Array [
     "length": 4,
     "messageText": "Block-scoped variable 'type' used before its declaration.",
     "start": 9142,
+    "text": "type",
   },
   Object {
     "category": 1,
@@ -650,6 +809,7 @@ Array [
     "length": 4,
     "messageText": "Variable 'type' is used before being assigned.",
     "start": 9142,
+    "text": "type",
   },
   Object {
     "category": 1,
@@ -687,6 +847,11 @@ Array [
       },
     },
     "start": 9663,
+    "text": "{
+    name: 'size',
+    type: FloatType,
+    resolve: () => Promise.resolve('not a number!'),
+  }",
   },
 ]
 `;
@@ -709,6 +874,11 @@ Array [
       },
     },
     "start": 353,
+    "text": "{
+    name: 'foo',
+    serialize: value => parseInt(value, 10),
+    parseValue: value => String(value),
+  }",
   },
   Object {
     "category": 1,
@@ -726,6 +896,11 @@ Array [
       },
     },
     "start": 567,
+    "text": "{
+    name: 'foo',
+    serialize: value => parseInt(value, 10),
+    parseLiteral: value => value.kind,
+  }",
   },
   Object {
     "category": 1,
@@ -743,6 +918,7 @@ Array [
       },
     },
     "start": 890,
+    "text": "type2",
   },
 ]
 `;
@@ -755,6 +931,7 @@ Array [
     "length": 8,
     "messageText": "Argument of type '\\"string\\"' is not assignable to parameter of type 'number'.",
     "start": 375,
+    "text": "'string'",
   },
   Object {
     "category": 1,
@@ -762,6 +939,7 @@ Array [
     "length": 8,
     "messageText": "Argument of type '\\"string\\"' is not assignable to parameter of type 'number'.",
     "start": 537,
+    "text": "'string'",
   },
   Object {
     "category": 1,
@@ -789,6 +967,9 @@ Array [
       },
     },
     "start": 896,
+    "text": "{
+    query,
+  }",
   },
   Object {
     "category": 1,
@@ -816,6 +997,9 @@ Array [
       },
     },
     "start": 1074,
+    "text": "{
+    query,
+  }",
   },
 ]
 `;
@@ -838,6 +1022,7 @@ Array [
       },
     },
     "start": 412,
+    "text": "output",
   },
   Object {
     "category": 1,
@@ -845,6 +1030,7 @@ Array [
     "length": 6,
     "messageText": "Type 'StrongGraphQLInputType<{}>' is not assignable to type 'StrongGraphQLOutputType<{}>'.",
     "start": 632,
+    "text": "output",
   },
   Object {
     "category": 1,
@@ -862,6 +1048,7 @@ Array [
       },
     },
     "start": 797,
+    "text": "input",
   },
   Object {
     "category": 1,
@@ -869,6 +1056,7 @@ Array [
     "length": 5,
     "messageText": "Type 'StrongGraphQLOutputType<{}>' is not assignable to type 'StrongGraphQLInputType<{}>'.",
     "start": 1012,
+    "text": "input",
   },
 ]
 `;
