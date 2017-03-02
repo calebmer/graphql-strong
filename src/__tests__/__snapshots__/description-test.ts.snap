@@ -1,4 +1,6 @@
-exports[`test trimDescription will correctly format a multiline string into a description 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`trimDescription will correctly format a multiline string into a description 1`] = `
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed aliquam dapibus
 diam eu convallis. Nullam tincidunt mi quis purus congue, eu commodo eros
 dapibus. Vivamus maximus ex nisi, sit amet varius dui vestibulum et. Duis in
@@ -33,7 +35,7 @@ ac feugiat velit facilisis at.
 - Ut viverra ipsum eget sem dignissim porttitor."
 `;
 
-exports[`test trimDescriptionsInConfig will trim descriptions in nested objects 1`] = `
+exports[`trimDescriptionsInConfig will trim descriptions in nested objects 1`] = `
 Object {
   "a": 1,
   "b": 2,

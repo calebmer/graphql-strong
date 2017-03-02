@@ -1,4 +1,6 @@
-exports[`test object-fixture.ts 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`object-fixture.ts 1`] = `
 Array [
   Object {
     "category": 1,
@@ -689,7 +691,7 @@ Array [
 ]
 `;
 
-exports[`test scalar-fixture.ts 1`] = `
+exports[`scalar-fixture.ts 1`] = `
 Array [
   Object {
     "category": 1,
@@ -715,11 +717,11 @@ Array [
     "messageText": Object {
       "category": 1,
       "code": 2345,
-      "messageText": "Argument of type '{ name: string; serialize: (value: string) => number; parseLiteral: (value: ValueNode) => "Variab...' is not assignable to parameter of type 'StrongGraphQLScalarTypeConfigWithInput<string, number>'.",
+      "messageText": "Argument of type '{ name: string; serialize: (value: string) => number; parseLiteral: (value: ValueNode) => \\"Variab...' is not assignable to parameter of type 'StrongGraphQLScalarTypeConfigWithInput<string, number>'.",
       "next": Object {
         "category": 1,
         "code": 2324,
-        "messageText": "Property 'parseValue' is missing in type '{ name: string; serialize: (value: string) => number; parseLiteral: (value: ValueNode) => "Variab...'.",
+        "messageText": "Property 'parseValue' is missing in type '{ name: string; serialize: (value: string) => number; parseLiteral: (value: ValueNode) => \\"Variab...'.",
         "next": undefined,
       },
     },
@@ -745,20 +747,20 @@ Array [
 ]
 `;
 
-exports[`test schema-fixture.ts 1`] = `
+exports[`schema-fixture.ts 1`] = `
 Array [
   Object {
     "category": 1,
     "code": 2345,
     "length": 8,
-    "messageText": "Argument of type '"string"' is not assignable to parameter of type 'number'.",
+    "messageText": "Argument of type '\\"string\\"' is not assignable to parameter of type 'number'.",
     "start": 375,
   },
   Object {
     "category": 1,
     "code": 2345,
     "length": 8,
-    "messageText": "Argument of type '"string"' is not assignable to parameter of type 'number'.",
+    "messageText": "Argument of type '\\"string\\"' is not assignable to parameter of type 'number'.",
     "start": 537,
   },
   Object {
@@ -818,7 +820,7 @@ Array [
 ]
 `;
 
-exports[`test wrap-fixture.ts 1`] = `
+exports[`wrap-fixture.ts 1`] = `
 Array [
   Object {
     "category": 1,
