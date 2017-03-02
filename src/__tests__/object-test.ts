@@ -1,9 +1,9 @@
 import { GraphQLObjectType, GraphQLNonNull, GraphQLString } from 'graphql';
-import { StrongGraphQLOutputType, StrongGraphQLInputType } from '../type';
+import { StrongOutputType, StrongInputType } from '../type';
 import { IntegerType } from '../wrap';
 import { createObjectType } from '../object';
 
-const mockOutputType = (): StrongGraphQLOutputType<string> => ({
+const mockOutputType = (): StrongOutputType<string> => ({
   _strongType: true,
   _strongOutputType: true,
   _strongValue: null,
@@ -12,7 +12,7 @@ const mockOutputType = (): StrongGraphQLOutputType<string> => ({
   nullable: () => mockOutputType(),
 });
 
-const mockInputType = (): StrongGraphQLInputType<string> => ({
+const mockInputType = (): StrongInputType<string> => ({
   _strongType: true,
   _strongInputType: true,
   _strongValue: null,

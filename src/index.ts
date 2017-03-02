@@ -1,8 +1,8 @@
 export {
-  StrongGraphQLType,
-  StrongGraphQLInputType,
-  StrongGraphQLOutputType,
-  StrongGraphQLInputOutputType,
+  StrongType,
+  StrongInputType,
+  StrongOutputType,
+  StrongInputOutputType,
 } from './type'
 
 export {
@@ -11,14 +11,14 @@ export {
 
 export {
   createObjectType,
-  StrongGraphQLObjectTypeConfig,
-  StrongGraphQLObjectType,
-  StrongGraphQLNullableObjectType,
-  StrongGraphQLArgsConfig,
-  StrongGraphQLArgConfig,
-  StrongGraphQLFieldConfig,
-  StrongGraphQLFieldConfigWithoutArgs,
-  StrongGraphQLFieldConfigWithArgs,
+  StrongObjectTypeConfig,
+  StrongObjectType,
+  StrongNullableObjectType,
+  StrongArgsConfig,
+  StrongArgConfig,
+  StrongFieldConfig,
+  StrongFieldConfigWithoutArgs,
+  StrongFieldConfigWithArgs,
 } from './object'
 
 export {

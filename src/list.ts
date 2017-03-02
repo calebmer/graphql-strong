@@ -1,15 +1,15 @@
 import { GraphQLList, GraphQLNonNull } from 'graphql';
-import { StrongGraphQLInputType, StrongGraphQLOutputType, StrongGraphQLInputOutputType } from './type';
+import { StrongInputType, StrongOutputType, StrongInputOutputType } from './type';
 
 /**
  * Creates a strong list type where the inner type is whatever GraphQL strong
  * type is passed in.
  */
-export function createListType <TValue>(type: StrongGraphQLInputOutputType<TValue>): StrongGraphQLInputOutputType<Array<TValue>>;
-export function createListType <TValue>(type: StrongGraphQLInputType<TValue>): StrongGraphQLInputType<Array<TValue>>;
-export function createListType <TValue>(type: StrongGraphQLOutputType<TValue>): StrongGraphQLOutputType<Array<TValue>>;
-export function createListType <TValue>(type: StrongGraphQLInputOutputType<TValue>): StrongGraphQLInputOutputType<Array<TValue>> {
-  const nullableListType: StrongGraphQLInputOutputType<Array<TValue> | null | undefined> = {
+export function createListType <TValue>(type: StrongInputOutputType<TValue>): StrongInputOutputType<Array<TValue>>;
+export function createListType <TValue>(type: StrongInputType<TValue>): StrongInputType<Array<TValue>>;
+export function createListType <TValue>(type: StrongOutputType<TValue>): StrongOutputType<Array<TValue>>;
+export function createListType <TValue>(type: StrongInputOutputType<TValue>): StrongInputOutputType<Array<TValue>> {
+  const nullableListType: StrongInputOutputType<Array<TValue> | null | undefined> = {
     _strongType: true,
     _strongInputType: true,
     _strongOutputType: true,
@@ -19,7 +19,7 @@ export function createListType <TValue>(type: StrongGraphQLInputOutputType<TValu
     getWeakOutputType: () => new GraphQLList(type.getWeakOutputType()),
     nullable: () => nullableListType,
   };
-  const listType: StrongGraphQLInputOutputType<Array<TValue>> = {
+  const listType: StrongInputOutputType<Array<TValue>> = {
     _strongType: true,
     _strongInputType: true,
     _strongOutputType: true,

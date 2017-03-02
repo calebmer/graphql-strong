@@ -1,4 +1,4 @@
-import { createSchema, StrongGraphQLObjectType } from '../../index';
+import { createSchema, StrongObjectType } from '../../index';
 
 // Execute works fine with correct value and context
 {
@@ -29,7 +29,7 @@ import { createSchema, StrongGraphQLObjectType } from '../../index';
 
 // Type works fine with correct value and context
 {
-  const query: StrongGraphQLObjectType<number, number> = null as any;
+  const query: StrongObjectType<number, number> = null as any;
 
   const schema = createSchema<number, number>({
     query,
@@ -38,7 +38,7 @@ import { createSchema, StrongGraphQLObjectType } from '../../index';
 
 // Type fails with incorrect value
 {
-  const query: StrongGraphQLObjectType<string, number> = null as any;
+  const query: StrongObjectType<string, number> = null as any;
 
   const schema = createSchema<number, number>({
     query,
@@ -47,7 +47,7 @@ import { createSchema, StrongGraphQLObjectType } from '../../index';
 
 // Type fails with incorrect context
 {
-  const query: StrongGraphQLObjectType<number, string> = null as any;
+  const query: StrongObjectType<number, string> = null as any;
 
   const schema = createSchema<number, number>({
     query,

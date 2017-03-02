@@ -1,22 +1,22 @@
 import { GraphQLSchema, graphql, ExecutionResult, GraphQLResolveInfo, defaultFieldResolver, OperationDefinitionNode } from 'graphql';
-import { StrongGraphQLObjectType } from './object';
+import { StrongObjectType } from './object';
 
 /**
  * Creates a strong, type-safe, GraphQL schema that forces correctness on
  * execution.
  */
-export function createSchema <TValue>(config: StrongGraphQLSchemaConfig<TValue, {}>): StrongGraphQLSchema<TValue, {}>;
-export function createSchema <TValue, TContext>(config: StrongGraphQLSchemaConfig<TValue, TContext>): StrongGraphQLSchema<TValue, TContext>;
-export function createSchema <TValue, TContext>(config: StrongGraphQLSchemaConfig<TValue, TContext>): StrongGraphQLSchema<TValue, TContext> {
-  return new StrongGraphQLSchema(config);
+export function createSchema <TValue>(config: StrongSchemaConfig<TValue, {}>): StrongSchema<TValue, {}>;
+export function createSchema <TValue, TContext>(config: StrongSchemaConfig<TValue, TContext>): StrongSchema<TValue, TContext>;
+export function createSchema <TValue, TContext>(config: StrongSchemaConfig<TValue, TContext>): StrongSchema<TValue, TContext> {
+  return new StrongSchema(config);
 }
 
 /**
  * The configuration for a strong GraphQL schema.
  */
-export interface StrongGraphQLSchemaConfig<TValue, TContext> {
-  readonly query: StrongGraphQLObjectType<TValue, TContext>;
-  readonly mutation?: StrongGraphQLObjectType<TValue, TContext>;
+export interface StrongSchemaConfig<TValue, TContext> {
+  readonly query: StrongObjectType<TValue, TContext>;
+  readonly mutation?: StrongObjectType<TValue, TContext>;
 
   /**
    * Runs only once at the beginning of an execution for this schema.
@@ -29,9 +29,9 @@ export interface StrongGraphQLSchemaConfig<TValue, TContext> {
  * type correctness on execution with the `execute` method.
  */
 export
-class StrongGraphQLSchema<TValue, TContext>
+class StrongSchema<TValue, TContext>
 extends GraphQLSchema {
-  constructor(config: StrongGraphQLSchemaConfig<TValue, TContext>) {
+  constructor(config: StrongSchemaConfig<TValue, TContext>) {
     super({
       query: config.query.ofType.clone(),
       mutation: config.mutation && config.mutation.ofType.clone(),

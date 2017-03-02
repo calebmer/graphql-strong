@@ -1,4 +1,4 @@
-import { StrongGraphQLInputType, StrongGraphQLOutputType, createScalarType } from '../../index';
+import { StrongInputType, StrongOutputType, createScalarType } from '../../index';
 
 // Works for just output types
 {
@@ -28,12 +28,12 @@ import { StrongGraphQLInputType, StrongGraphQLOutputType, createScalarType } fro
 
 // Will not let an output type be an input type
 {
-  const type1: StrongGraphQLOutputType<string> = createScalarType<string, number>({
+  const type1: StrongOutputType<string> = createScalarType<string, number>({
     name: 'foo',
     serialize: value => parseInt(value, 10),
   });
 
-  const type2: StrongGraphQLInputType<string> = createScalarType<string, number>({
+  const type2: StrongInputType<string> = createScalarType<string, number>({
     name: 'foo',
     serialize: value => parseInt(value, 10),
   });
@@ -41,14 +41,14 @@ import { StrongGraphQLInputType, StrongGraphQLOutputType, createScalarType } fro
 
 // Will let an input-output type be both an input and output type
 {
-  const type1: StrongGraphQLOutputType<string> = createScalarType<string, number>({
+  const type1: StrongOutputType<string> = createScalarType<string, number>({
     name: 'foo',
     serialize: value => parseInt(value, 10),
     parseValue: value => String(value),
     parseLiteral: value => value.kind,
   });
 
-  const type2: StrongGraphQLInputType<string> = createScalarType<string, number>({
+  const type2: StrongInputType<string> = createScalarType<string, number>({
     name: 'foo',
     serialize: value => parseInt(value, 10),
     parseValue: value => String(value),

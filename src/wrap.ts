@@ -1,5 +1,5 @@
 import { GraphQLType, GraphQLInputType, GraphQLOutputType, GraphQLNonNull, GraphQLInt, GraphQLFloat, GraphQLString, GraphQLBoolean, GraphQLID, assertInputType, assertOutputType } from 'graphql';
-import { StrongGraphQLInputType, StrongGraphQLOutputType, StrongGraphQLInputOutputType } from './type';
+import { StrongInputType, StrongOutputType, StrongInputOutputType } from './type';
 
 // Wrappings for types that are baked into the standard library.
 export const IntegerType = wrapWeakType<number>(GraphQLInt);
@@ -11,16 +11,16 @@ export const IDType = wrapWeakType<string>(GraphQLID);
 /**
  * Wraps a `GraphQLType` into a strong GraphQL type with an associated type in
  * the type system. If the `GraphQLType` is a `GraphQLInputType` a
- * `StrongGraphQLInputType` will be returned, if the `GraphQLType` is a
- * `GraphQLOutputType` a `StrongGraphQLOutputType` will be returned, and if the
+ * `StrongInputType` will be returned, if the `GraphQLType` is a
+ * `GraphQLOutputType` a `StrongOutputType` will be returned, and if the
  * `GraphQLType` is both a `GraphQLInputType` and a `GraphQLOutputType` a
- * `StrongGraphQLInputOutputType` will be returned.
+ * `StrongInputOutputType` will be returned.
  */
-export function wrapWeakType <TValue>(type: GraphQLInputType & GraphQLOutputType): StrongGraphQLInputOutputType<TValue>;
-export function wrapWeakType <TValue>(type: GraphQLInputType): StrongGraphQLInputType<TValue>;
-export function wrapWeakType <TValue>(type: GraphQLOutputType): StrongGraphQLOutputType<TValue>;
-export function wrapWeakType <TValue>(type: GraphQLType): StrongGraphQLInputOutputType<TValue> {
-  const nullableStrongType: StrongGraphQLInputOutputType<TValue | null | undefined> = {
+export function wrapWeakType <TValue>(type: GraphQLInputType & GraphQLOutputType): StrongInputOutputType<TValue>;
+export function wrapWeakType <TValue>(type: GraphQLInputType): StrongInputType<TValue>;
+export function wrapWeakType <TValue>(type: GraphQLOutputType): StrongOutputType<TValue>;
+export function wrapWeakType <TValue>(type: GraphQLType): StrongInputOutputType<TValue> {
+  const nullableStrongType: StrongInputOutputType<TValue | null | undefined> = {
     _strongType: true,
     _strongInputType: true,
     _strongOutputType: true,
@@ -30,7 +30,7 @@ export function wrapWeakType <TValue>(type: GraphQLType): StrongGraphQLInputOutp
     getWeakOutputType: () => assertOutputType(type),
     nullable: () => nullableStrongType,
   };
-  const strongType: StrongGraphQLInputOutputType<TValue> = {
+  const strongType: StrongInputOutputType<TValue> = {
     _strongType: true,
     _strongInputType: true,
     _strongOutputType: true,

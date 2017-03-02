@@ -1,7 +1,7 @@
 import {
-  StrongGraphQLInputType,
-  StrongGraphQLOutputType,
-  StrongGraphQLInputOutputType,
+  StrongInputType,
+  StrongOutputType,
+  StrongInputOutputType,
   StringType,
   FloatType,
   IntegerType,
@@ -101,7 +101,7 @@ ImageType
 ImageType
   .fieldNonNull<string>({
     name: 'url',
-    type: (null as any) as StrongGraphQLInputType<string>,
+    type: (null as any) as StrongInputType<string>,
     resolve: ({ url }) => url,
   });
 
@@ -109,7 +109,7 @@ ImageType
 ImageType
   .fieldNonNull<string>({
     name: 'url',
-    type: (null as any) as StrongGraphQLInputOutputType<string>,
+    type: (null as any) as StrongInputOutputType<string>,
     resolve: ({ url }) => url,
   });
 
@@ -352,7 +352,7 @@ PersonType
     type: ImageType,
     args: {
       width: {
-        type: (null as any) as StrongGraphQLInputType<number>,
+        type: (null as any) as StrongInputType<number>,
       },
       height: {
         type: createNullableType(IntegerType),
@@ -372,7 +372,7 @@ PersonType
     type: ImageType,
     args: {
       width: {
-        type: (null as any) as StrongGraphQLOutputType<number>,
+        type: (null as any) as StrongOutputType<number>,
       },
       height: {
         type: createNullableType(IntegerType),
@@ -392,7 +392,7 @@ PersonType
     type: ImageType,
     args: {
       width: {
-        type: (null as any) as StrongGraphQLInputOutputType<number>,
+        type: (null as any) as StrongInputOutputType<number>,
       },
       height: {
         type: createNullableType(IntegerType),
@@ -425,7 +425,7 @@ PersonType
 
 // Un-thunked recursion fails
 {
-  const type: StrongGraphQLOutputType<Person> = createObjectType<Person>({
+  const type: StrongOutputType<Person> = createObjectType<Person>({
     name: 'foo',
   })
     .fieldNonNull<Person>({
@@ -437,7 +437,7 @@ PersonType
 
 // Thunked recursion passes
 {
-  const type: StrongGraphQLOutputType<Person> = createObjectType<Person>({
+  const type: StrongOutputType<Person> = createObjectType<Person>({
     name: 'foo',
   })
     .fieldNonNull<Person>({

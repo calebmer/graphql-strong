@@ -1,5 +1,5 @@
 import { GraphQLNonNull, GraphQLObjectType, GraphQLFieldConfigMap, GraphQLFieldConfigArgumentMap, GraphQLSchema, graphql, ExecutionResult } from 'graphql';
-import { StrongGraphQLOutputType, StrongGraphQLInputType } from './type';
+import { StrongOutputType, StrongInputType } from './type';
 import { trimDescriptionsInConfig } from './description';
 
 /**
@@ -8,17 +8,17 @@ import { trimDescriptionsInConfig } from './description';
  * The type will be non-null, in order to get the nullable variant of the type
  * just call `.nullable()`.
  */
-export function createObjectType <TValue>(config: StrongGraphQLObjectTypeConfig<TValue, {}>): StrongGraphQLObjectType<TValue, {}>;
-export function createObjectType <TValue, TContext>(config: StrongGraphQLObjectTypeConfig<TValue, TContext>): StrongGraphQLObjectType<TValue, TContext>;
-export function createObjectType <TValue, TContext>(config: StrongGraphQLObjectTypeConfig<TValue, TContext>): StrongGraphQLObjectType<TValue, TContext> {
-  return new StrongGraphQLObjectType(new StrongGraphQLNullableObjectType(trimDescriptionsInConfig(config), []));
+export function createObjectType <TValue>(config: StrongObjectTypeConfig<TValue, {}>): StrongObjectType<TValue, {}>;
+export function createObjectType <TValue, TContext>(config: StrongObjectTypeConfig<TValue, TContext>): StrongObjectType<TValue, TContext>;
+export function createObjectType <TValue, TContext>(config: StrongObjectTypeConfig<TValue, TContext>): StrongObjectType<TValue, TContext> {
+  return new StrongObjectType(new StrongNullableObjectType(trimDescriptionsInConfig(config), []));
 }
 
 /**
  * A configuration object to be used when creating object types. Any extra
  * options will go straight into the type config.
  */
-export type StrongGraphQLObjectTypeConfig<TValue, TContext> = {
+export type StrongObjectTypeConfig<TValue, TContext> = {
   readonly name: string,
   readonly description?: string | undefined,
   readonly isTypeOf?: (value: any, context: TContext) => value is TValue,
@@ -32,9 +32,9 @@ export type StrongGraphQLObjectTypeConfig<TValue, TContext> = {
 // `createObjectType`, but the function interface feels nicer and allows us to
 // add extra features like function overloading.
 export
-class StrongGraphQLObjectType<TValue, TContext>
-extends GraphQLNonNull<StrongGraphQLNullableObjectType<TValue, TContext>>
-implements StrongGraphQLOutputType<TValue> {
+class StrongObjectType<TValue, TContext>
+extends GraphQLNonNull<StrongNullableObjectType<TValue, TContext>>
+implements StrongOutputType<TValue> {
   // The required type flags.
   public readonly _strongType: true = true;
   public readonly _strongOutputType: true = true;
@@ -51,7 +51,7 @@ implements StrongGraphQLOutputType<TValue> {
    */
   public readonly name: string;
 
-  constructor(nullableType: StrongGraphQLNullableObjectType<TValue, TContext>) {
+  constructor(nullableType: StrongNullableObjectType<TValue, TContext>) {
     super(nullableType);
     this.name = nullableType.name;
   }
@@ -67,20 +67,20 @@ implements StrongGraphQLOutputType<TValue> {
    * The field created will have a nullable type. To get a non-null field type
    * use `fieldNonNull`.
    */
-  public field <TFieldValue>(config: StrongGraphQLFieldConfigWithoutArgs<TValue, TContext, TFieldValue | null | undefined>): StrongGraphQLObjectType<TValue, TContext>
-  public field <TFieldValue, TArgs>(config: StrongGraphQLFieldConfigWithArgs<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongGraphQLObjectType<TValue, TContext>
-  public field <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongGraphQLObjectType<TValue, TContext> {
-    return new StrongGraphQLObjectType(this.ofType._field(config));
+  public field <TFieldValue>(config: StrongFieldConfigWithoutArgs<TValue, TContext, TFieldValue | null | undefined>): StrongObjectType<TValue, TContext>
+  public field <TFieldValue, TArgs>(config: StrongFieldConfigWithArgs<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongObjectType<TValue, TContext>
+  public field <TFieldValue, TArgs>(config: StrongFieldConfig<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongObjectType<TValue, TContext> {
+    return new StrongObjectType(this.ofType._field(config));
   }
 
   /**
    * Returns a new strong GraphQL object type with a new field. This function
    * does not mutate the type it was called on.
    */
-  public fieldNonNull <TFieldValue>(config: StrongGraphQLFieldConfigWithoutArgs<TValue, TContext, TFieldValue>): StrongGraphQLObjectType<TValue, TContext>
-  public fieldNonNull <TFieldValue, TArgs>(config: StrongGraphQLFieldConfigWithArgs<TValue, TArgs, TContext, TFieldValue>): StrongGraphQLObjectType<TValue, TContext>
-  public fieldNonNull <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue>): StrongGraphQLObjectType<TValue, TContext> {
-    return new StrongGraphQLObjectType(this.ofType._fieldNonNull(config));
+  public fieldNonNull <TFieldValue>(config: StrongFieldConfigWithoutArgs<TValue, TContext, TFieldValue>): StrongObjectType<TValue, TContext>
+  public fieldNonNull <TFieldValue, TArgs>(config: StrongFieldConfigWithArgs<TValue, TArgs, TContext, TFieldValue>): StrongObjectType<TValue, TContext>
+  public fieldNonNull <TFieldValue, TArgs>(config: StrongFieldConfig<TValue, TArgs, TContext, TFieldValue>): StrongObjectType<TValue, TContext> {
+    return new StrongObjectType(this.ofType._fieldNonNull(config));
   }
 
   /**
@@ -96,7 +96,7 @@ implements StrongGraphQLOutputType<TValue> {
   /**
    * Returns the inner nullable version of this type without mutating anything.
    */
-  public nullable(): StrongGraphQLOutputType<TValue | null | undefined> {
+  public nullable(): StrongOutputType<TValue | null | undefined> {
     return this.ofType;
   }
 
@@ -104,8 +104,8 @@ implements StrongGraphQLOutputType<TValue> {
    * Creates a new copy of this type. It is the exact same as the type which
    * `.clone()` was called on except that the reference is different.
    */
-  public clone(): StrongGraphQLObjectType<TValue, TContext> {
-    return new StrongGraphQLObjectType(this.ofType.clone());
+  public clone(): StrongObjectType<TValue, TContext> {
+    return new StrongObjectType(this.ofType.clone());
   }
 
   /**
@@ -124,26 +124,26 @@ implements StrongGraphQLOutputType<TValue> {
 }
 
 /**
- * The private nullable implementation of `StrongGraphQLObjectType`. Because we
+ * The private nullable implementation of `StrongObjectType`. Because we
  * want types to be non-null by default, but in GraphQL types are nullable by
  * default this type is also the one that actually extends from
  * `GraphQLObjectType`.
  */
 export
-class StrongGraphQLNullableObjectType<TValue, TContext>
+class StrongNullableObjectType<TValue, TContext>
 extends GraphQLObjectType
-implements StrongGraphQLOutputType<TValue | null | undefined> {
+implements StrongOutputType<TValue | null | undefined> {
   // The required type flags.
   public readonly _strongType: true = true;
   public readonly _strongOutputType: true = true;
   public readonly _strongValue: TValue | null | undefined = undefined as any;
 
-  private readonly _strongConfig: StrongGraphQLObjectTypeConfig<TValue, TContext>;
-  private readonly _strongFieldConfigs: Array<StrongGraphQLFieldConfig<TValue, {}, TContext, any>>;
+  private readonly _strongConfig: StrongObjectTypeConfig<TValue, TContext>;
+  private readonly _strongFieldConfigs: Array<StrongFieldConfig<TValue, {}, TContext, any>>;
 
   constructor(
-    config: StrongGraphQLObjectTypeConfig<TValue, TContext>,
-    fieldConfigs: Array<StrongGraphQLFieldConfig<TValue, {}, TContext, any>>,
+    config: StrongObjectTypeConfig<TValue, TContext>,
+    fieldConfigs: Array<StrongFieldConfig<TValue, {}, TContext, any>>,
   ) {
     super({
       name: config.name,
@@ -174,7 +174,7 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
           if (fieldConfig.args) {
             for (const argName in fieldConfig.args) {
               if (fieldConfig.args.hasOwnProperty(argName)) {
-                const argConfig = (fieldConfig.args as { [key: string]: StrongGraphQLArgConfig<{}> })[argName];
+                const argConfig = (fieldConfig.args as { [key: string]: StrongArgConfig<{}> })[argName];
 
                 argsDefinition[argName] = {
                   type: argConfig.type.getWeakInputType(),
@@ -216,11 +216,11 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
 
   /**
    * This field is a private implementation detail and should not be used
-   * outside of `StrongGraphQLObjectType`!
+   * outside of `StrongObjectType`!
    */
-  public _field <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongGraphQLNullableObjectType<TValue, TContext> {
+  public _field <TFieldValue, TArgs>(config: StrongFieldConfig<TValue, TArgs, TContext, TFieldValue | null | undefined>): StrongNullableObjectType<TValue, TContext> {
     this._assertUniqueFieldName(config.name);
-    return new StrongGraphQLNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, trimDescriptionsInConfig({
+    return new StrongNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, trimDescriptionsInConfig({
       ...config,
       type: () => typeof config.type === 'function' ? config.type().nullable() : config.type.nullable(),
     })]);
@@ -228,11 +228,11 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
 
   /**
    * This field is a private implementation detail and should not be used
-   * outside of `StrongGraphQLObjectType`!
+   * outside of `StrongObjectType`!
    */
-  public _fieldNonNull <TFieldValue, TArgs>(config: StrongGraphQLFieldConfig<TValue, TArgs, TContext, TFieldValue>): StrongGraphQLNullableObjectType<TValue, TContext> {
+  public _fieldNonNull <TFieldValue, TArgs>(config: StrongFieldConfig<TValue, TArgs, TContext, TFieldValue>): StrongNullableObjectType<TValue, TContext> {
     this._assertUniqueFieldName(config.name);
-    return new StrongGraphQLNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, trimDescriptionsInConfig(config)]);
+    return new StrongNullableObjectType(this._strongConfig, [...this._strongFieldConfigs, trimDescriptionsInConfig(config)]);
   }
 
   /**
@@ -246,8 +246,8 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
    * Creates a new copy of this type. It is the exact same as the type which
    * `.clone()` was called on except that the reference is different.
    */
-  public clone(): StrongGraphQLNullableObjectType<TValue, TContext> {
-    return new StrongGraphQLNullableObjectType(this._strongConfig, this._strongFieldConfigs);
+  public clone(): StrongNullableObjectType<TValue, TContext> {
+    return new StrongNullableObjectType(this._strongConfig, this._strongFieldConfigs);
   }
 }
 
@@ -255,15 +255,15 @@ implements StrongGraphQLOutputType<TValue | null | undefined> {
  * A type which represents the GraphQL type definition of the argument
  * TypeScript type provided.
  */
-export type StrongGraphQLArgsConfig<TArgs> = {
-  [TArg in keyof TArgs]: StrongGraphQLArgConfig<TArgs[TArg]>
+export type StrongArgsConfig<TArgs> = {
+  [TArg in keyof TArgs]: StrongArgConfig<TArgs[TArg]>
 };
 
 /**
  * A type which represents a single argument configuration.
  */
-export type StrongGraphQLArgConfig<TValue> = {
-  readonly type: StrongGraphQLInputType<TValue>,
+export type StrongArgConfig<TValue> = {
+  readonly type: StrongInputType<TValue>,
   readonly defaultValue?: TValue,
   readonly description?: string | undefined,
 };
@@ -274,23 +274,23 @@ export type StrongGraphQLArgConfig<TValue> = {
  *
  * Arguments are optional.
  */
-export type StrongGraphQLFieldConfig<TSourceValue, TArgs, TContext, TValue> = {
+export type StrongFieldConfig<TSourceValue, TArgs, TContext, TValue> = {
   readonly name: string,
   readonly description?: string | undefined,
   readonly deprecationReason?: string | undefined,
-  readonly type: StrongGraphQLOutputType<TValue> | (() => StrongGraphQLOutputType<TValue>),
-  readonly args?: StrongGraphQLArgsConfig<TArgs>,
+  readonly type: StrongOutputType<TValue> | (() => StrongOutputType<TValue>),
+  readonly args?: StrongArgsConfig<TArgs>,
   readonly resolve: (source: TSourceValue, args: TArgs, context: TContext) => TValue | Promise<TValue>,
 };
 
 /**
  * A single field configuration except for you don’t need the arguments.
  */
-export type StrongGraphQLFieldConfigWithoutArgs<TSourceValue, TContext, TValue> = StrongGraphQLFieldConfig<TSourceValue, {}, TContext, TValue>;
+export type StrongFieldConfigWithoutArgs<TSourceValue, TContext, TValue> = StrongFieldConfig<TSourceValue, {}, TContext, TValue>;
 
 /**
  * A single field configuration except the arguments are required.
  */
-export type StrongGraphQLFieldConfigWithArgs<TSourceValue, TArgs, TContext, TValue> = StrongGraphQLFieldConfig<TSourceValue, TArgs, TContext, TValue> & {
-  readonly args: StrongGraphQLArgsConfig<TArgs>,
+export type StrongFieldConfigWithArgs<TSourceValue, TArgs, TContext, TValue> = StrongFieldConfig<TSourceValue, TArgs, TContext, TValue> & {
+  readonly args: StrongArgsConfig<TArgs>,
 };

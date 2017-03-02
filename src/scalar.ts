@@ -1,5 +1,5 @@
 import { ValueNode, GraphQLNonNull, GraphQLScalarType } from 'graphql';
-import { StrongGraphQLOutputType, StrongGraphQLInputOutputType } from './type';
+import { StrongOutputType, StrongInputOutputType } from './type';
 import { trimDescriptionsInConfig } from './description';
 
 /**
@@ -9,17 +9,17 @@ import { trimDescriptionsInConfig } from './description';
  * output type. If you pass both a `parseValue` and `parseLiteral` function with
  * your config, you will get an input/output type.
  */
-export function createScalarType <TInternalValue, TExternalValue>(config: StrongGraphQLScalarTypeConfigWithoutInput<TInternalValue, TExternalValue>): StrongGraphQLOutputType<TInternalValue>;
-export function createScalarType <TInternalValue, TExternalValue>(config: StrongGraphQLScalarTypeConfigWithInput<TInternalValue, TExternalValue>): StrongGraphQLInputOutputType<TInternalValue>;
-export function createScalarType <TInternalValue, TExternalValue>(config: StrongGraphQLScalarTypeConfig<TInternalValue, TExternalValue>): StrongGraphQLInputOutputType<TInternalValue> {
-  return new StrongGraphQLScalarType(new StrongGraphQLNullableScalarType(trimDescriptionsInConfig(config)));
+export function createScalarType <TInternalValue, TExternalValue>(config: StrongScalarTypeConfigWithoutInput<TInternalValue, TExternalValue>): StrongOutputType<TInternalValue>;
+export function createScalarType <TInternalValue, TExternalValue>(config: StrongScalarTypeConfigWithInput<TInternalValue, TExternalValue>): StrongInputOutputType<TInternalValue>;
+export function createScalarType <TInternalValue, TExternalValue>(config: StrongScalarTypeConfig<TInternalValue, TExternalValue>): StrongInputOutputType<TInternalValue> {
+  return new StrongScalarType(new StrongNullableScalarType(trimDescriptionsInConfig(config)));
 }
 
 /**
  * The base GraphQL scalar type config. It has optional `parseValue` and
  * `parseLiteral` properties.
  */
-type StrongGraphQLScalarTypeConfig<TInternalValue, TExternalValue> = {
+type StrongScalarTypeConfig<TInternalValue, TExternalValue> = {
   readonly name: string,
   readonly description?: string | undefined,
   readonly serialize: (value: TInternalValue) => TExternalValue,
@@ -31,7 +31,7 @@ type StrongGraphQLScalarTypeConfig<TInternalValue, TExternalValue> = {
  * A GraphQL scalar type config that does not support input values, only output
  * values.
  */
-export type StrongGraphQLScalarTypeConfigWithoutInput<TInternalValue, TExternalValue> = {
+export type StrongScalarTypeConfigWithoutInput<TInternalValue, TExternalValue> = {
   readonly name: string,
   readonly description?: string | undefined,
   readonly serialize: (value: TInternalValue) => TExternalValue,
@@ -41,7 +41,7 @@ export type StrongGraphQLScalarTypeConfigWithoutInput<TInternalValue, TExternalV
  * A GraphQL scalar type config that does support input values alongside output
  * values.
  */
-export type StrongGraphQLScalarTypeConfigWithInput<TInternalValue, TExternalValue> = {
+export type StrongScalarTypeConfigWithInput<TInternalValue, TExternalValue> = {
   readonly name: string,
   readonly description?: string | undefined,
   readonly serialize: (value: TInternalValue) => TExternalValue,
@@ -52,16 +52,16 @@ export type StrongGraphQLScalarTypeConfigWithInput<TInternalValue, TExternalValu
 /**
  * The non-null strong GraphQL scalar type object.
  */
-class StrongGraphQLScalarType<TInternalValue, TExternalValue>
-extends GraphQLNonNull<StrongGraphQLNullableScalarType<TInternalValue, TExternalValue>>
-implements StrongGraphQLInputOutputType<TInternalValue> {
+class StrongScalarType<TInternalValue, TExternalValue>
+extends GraphQLNonNull<StrongNullableScalarType<TInternalValue, TExternalValue>>
+implements StrongInputOutputType<TInternalValue> {
   // The required type flags.
   public readonly _strongType: true = true;
   public readonly _strongInputType: true = true;
   public readonly _strongOutputType: true = true;
   public readonly _strongValue: TInternalValue = undefined as any;
 
-  constructor(nullableType: StrongGraphQLNullableScalarType<TInternalValue, TExternalValue>) {
+  constructor(nullableType: StrongNullableScalarType<TInternalValue, TExternalValue>) {
     super(nullableType);
   }
 
@@ -73,7 +73,7 @@ implements StrongGraphQLInputOutputType<TInternalValue> {
   /**
    * Returns the inner nullable variation of this type.
    */
-  public nullable(): StrongGraphQLInputOutputType<TInternalValue | null | undefined> {
+  public nullable(): StrongInputOutputType<TInternalValue | null | undefined> {
     return this.ofType;
   }
 }
@@ -81,16 +81,16 @@ implements StrongGraphQLInputOutputType<TInternalValue> {
 /**
  * The nullable sstrong GraphQL scalar type object.
  */
-class StrongGraphQLNullableScalarType<TInternalValue, TExternalValue>
+class StrongNullableScalarType<TInternalValue, TExternalValue>
 extends GraphQLScalarType
-implements StrongGraphQLInputOutputType<TInternalValue | null | undefined> {
+implements StrongInputOutputType<TInternalValue | null | undefined> {
   // The required type flags.
   public readonly _strongType: true = true;
   public readonly _strongInputType: true = true;
   public readonly _strongOutputType: true = true;
   public readonly _strongValue: TInternalValue | null | undefined = undefined as any;
 
-  constructor(config: StrongGraphQLScalarTypeConfig<TInternalValue, TExternalValue>) {
+  constructor(config: StrongScalarTypeConfig<TInternalValue, TExternalValue>) {
     super(config);
   }
 
