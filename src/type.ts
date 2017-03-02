@@ -25,7 +25,7 @@ export interface StrongGraphQLType<TValue> {
    * This value will always be null, it is useless outside of the type system,
    * private, and may be changed or removed at any time.
    */
-  readonly _strongValue: TValue | null;
+  readonly _strongValue: TValue;
 
   /**
    * Gets the vanilla GraphQL-JS type for this strong type. Many types will

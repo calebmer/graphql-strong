@@ -56,10 +56,10 @@ class StrongGraphQLScalarType<TInternalValue, TExternalValue>
 extends GraphQLNonNull<StrongGraphQLNullableScalarType<TInternalValue, TExternalValue>>
 implements StrongGraphQLInputOutputType<TInternalValue> {
   // The required type flags.
-  readonly _strongType = true;
-  readonly _strongInputType = true;
-  readonly _strongOutputType = true;
-  readonly _strongValue = null;
+  public readonly _strongType: true = true;
+  public readonly _strongInputType: true = true;
+  public readonly _strongOutputType: true = true;
+  public readonly _strongValue: TInternalValue = undefined as any;
 
   constructor(nullableType: StrongGraphQLNullableScalarType<TInternalValue, TExternalValue>) {
     super(nullableType);
@@ -85,10 +85,10 @@ class StrongGraphQLNullableScalarType<TInternalValue, TExternalValue>
 extends GraphQLScalarType
 implements StrongGraphQLInputOutputType<TInternalValue | null | undefined> {
   // The required type flags.
-  readonly _strongType = true;
-  readonly _strongInputType = true;
-  readonly _strongOutputType = true;
-  readonly _strongValue = null;
+  public readonly _strongType: true = true;
+  public readonly _strongInputType: true = true;
+  public readonly _strongOutputType: true = true;
+  public readonly _strongValue: TInternalValue | null | undefined = undefined as any;
 
   constructor(config: StrongGraphQLScalarTypeConfig<TInternalValue, TExternalValue>) {
     super(config);

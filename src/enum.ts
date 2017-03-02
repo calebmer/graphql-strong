@@ -31,10 +31,10 @@ class StrongGraphQLEnumType<TValue>
 extends GraphQLNonNull<StrongGraphQLNullableEnumType<TValue>>
 implements StrongGraphQLInputOutputType<TValue> {
   // The required type flags.
-  readonly _strongType = true;
-  readonly _strongInputType = true;
-  readonly _strongOutputType = true;
-  readonly _strongValue = null;
+  public readonly _strongType: true = true;
+  public readonly _strongInputType: true = true;
+  public readonly _strongOutputType: true = true;
+  public readonly _strongValue: TValue = undefined as any;
 
   constructor(nullableType: StrongGraphQLNullableEnumType<TValue>) {
     super(nullableType);
@@ -60,10 +60,10 @@ class StrongGraphQLNullableEnumType<TValue>
 extends GraphQLEnumType
 implements StrongGraphQLInputOutputType<TValue | null | undefined> {
   // The required type flags.
-  readonly _strongType = true;
-  readonly _strongInputType = true;
-  readonly _strongOutputType = true;
-  readonly _strongValue = null;
+  public readonly _strongType: true = true;
+  public readonly _strongInputType: true = true;
+  public readonly _strongOutputType: true = true;
+  public readonly _strongValue: TValue | null | undefined = undefined as any;
 
   constructor(config: StrongGraphQLEnumTypeConfig<TValue>) {
     super(config);

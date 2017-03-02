@@ -20,11 +20,11 @@ export function wrapWeakType <TValue>(type: GraphQLInputType & GraphQLOutputType
 export function wrapWeakType <TValue>(type: GraphQLInputType): StrongGraphQLInputType<TValue>;
 export function wrapWeakType <TValue>(type: GraphQLOutputType): StrongGraphQLOutputType<TValue>;
 export function wrapWeakType <TValue>(type: GraphQLType): StrongGraphQLInputOutputType<TValue> {
-  const nullableStrongType: StrongGraphQLInputOutputType<TValue> = {
+  const nullableStrongType: StrongGraphQLInputOutputType<TValue | null | undefined> = {
     _strongType: true,
     _strongInputType: true,
     _strongOutputType: true,
-    _strongValue: null,
+    _strongValue: undefined as any,
     getWeakType: () => type,
     getWeakInputType: () => assertInputType(type),
     getWeakOutputType: () => assertOutputType(type),
@@ -34,7 +34,7 @@ export function wrapWeakType <TValue>(type: GraphQLType): StrongGraphQLInputOutp
     _strongType: true,
     _strongInputType: true,
     _strongOutputType: true,
-    _strongValue: null,
+    _strongValue: undefined as any,
     getWeakType: () => new GraphQLNonNull(type),
     getWeakInputType: () => new GraphQLNonNull(assertInputType(type)),
     getWeakOutputType: () => new GraphQLNonNull(assertOutputType(type)),

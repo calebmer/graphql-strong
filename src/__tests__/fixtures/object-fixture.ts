@@ -63,7 +63,7 @@ PersonType
     type: StringType,
     resolve: ({ email }) => email,
   })
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -155,7 +155,7 @@ ImageType
 
 // Field with arguments wrong type
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: StringType,
     args: {
@@ -175,7 +175,7 @@ PersonType
 
 // Arguments wrong type 1
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -195,7 +195,7 @@ PersonType
 
 // Arguments wrong type 2
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -215,7 +215,7 @@ PersonType
 
 // Missing arguments definition
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     resolve: ({ imageURL }, { width, height }) => imageURL ? {
@@ -227,7 +227,7 @@ PersonType
 
 // Missing single argument 1
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -244,7 +244,7 @@ PersonType
 
 // Missing single argument 2
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -261,7 +261,7 @@ PersonType
 
 // Nullable argument in non-null position
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -301,7 +301,7 @@ PersonType
 
 // Extra argument definitions
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -324,7 +324,7 @@ PersonType
 
 // Extra argument definitions don’t type-check
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -347,7 +347,7 @@ PersonType
 
 // Argument input type passes
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -367,7 +367,7 @@ PersonType
 
 // Argument output type fails
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
@@ -387,7 +387,7 @@ PersonType
 
 // Argument input-output type fails
 PersonType
-  .field<Image, { width: number, height: number | undefined }>({
+  .field<Image, { width: number, height: number | null | undefined }>({
     name: 'image',
     type: ImageType,
     args: {
