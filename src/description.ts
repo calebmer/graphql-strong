@@ -17,7 +17,7 @@ export function trimDescription(description: string): string {
  *
  * We only trim descriptions on plain JavaScript objects.
  */
-export function trimDescriptionsInConfig <T extends { [key: string]: any }>(config: T): T {
+export function trimDescriptionsInConfig<T extends { [key: string]: any }>(config: T): T {
   const nextConfig: { [key: string]: any } = {};
 
   // Iterate through every key in the config object.

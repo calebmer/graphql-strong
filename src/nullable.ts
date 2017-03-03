@@ -9,9 +9,9 @@ import { StrongType, StrongInputType, StrongOutputType, StrongInputOutputType } 
  * types be non-null by default. This is like `GraphQLNonNull` except it does
  * the inverse.
  */
-export function createNullableType <TValue>(type: StrongInputOutputType<TValue>): StrongInputOutputType<TValue | null | undefined>;
-export function createNullableType <TValue>(type: StrongInputType<TValue>): StrongInputType<TValue | null | undefined>;
-export function createNullableType <TValue>(type: StrongOutputType<TValue>): StrongOutputType<TValue | null | undefined>;
-export function createNullableType <TValue>(type: StrongType<TValue>): StrongType<TValue | null | undefined> {
+export function createNullableType<TValue>(type: StrongInputOutputType<TValue>): StrongInputOutputType<TValue | null | undefined>;
+export function createNullableType<TValue>(type: StrongInputType<TValue>): StrongInputType<TValue | null | undefined>;
+export function createNullableType<TValue>(type: StrongOutputType<TValue>): StrongOutputType<TValue | null | undefined>;
+export function createNullableType<TValue>(type: StrongType<TValue>): StrongType<TValue | null | undefined> {
   return type.nullable();
 }

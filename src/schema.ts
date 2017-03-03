@@ -5,9 +5,9 @@ import { StrongObjectType } from './object';
  * Creates a strong, type-safe, GraphQL schema that forces correctness on
  * execution.
  */
-export function createSchema <TValue>(config: StrongSchemaConfig<TValue, {}>): StrongSchema<TValue, {}>;
-export function createSchema <TValue, TContext>(config: StrongSchemaConfig<TValue, TContext>): StrongSchema<TValue, TContext>;
-export function createSchema <TValue, TContext>(config: StrongSchemaConfig<TValue, TContext>): StrongSchema<TValue, TContext> {
+export function createSchema<TValue>(config: StrongSchemaConfig<TValue, {}>): StrongSchema<TValue, {}>;
+export function createSchema<TValue, TContext>(config: StrongSchemaConfig<TValue, TContext>): StrongSchema<TValue, TContext>;
+export function createSchema<TValue, TContext>(config: StrongSchemaConfig<TValue, TContext>): StrongSchema<TValue, TContext> {
   return new StrongSchema(config);
 }
 

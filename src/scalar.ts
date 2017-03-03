@@ -9,9 +9,9 @@ import { trimDescriptionsInConfig } from './description';
  * output type. If you pass both a `parseValue` and `parseLiteral` function with
  * your config, you will get an input/output type.
  */
-export function createScalarType <TInternalValue, TExternalValue>(config: StrongScalarTypeConfigWithoutInput<TInternalValue, TExternalValue>): StrongOutputType<TInternalValue>;
-export function createScalarType <TInternalValue, TExternalValue>(config: StrongScalarTypeConfigWithInput<TInternalValue, TExternalValue>): StrongInputOutputType<TInternalValue>;
-export function createScalarType <TInternalValue, TExternalValue>(config: StrongScalarTypeConfig<TInternalValue, TExternalValue>): StrongInputOutputType<TInternalValue> {
+export function createScalarType<TInternalValue, TExternalValue>(config: StrongScalarTypeConfigWithoutInput<TInternalValue, TExternalValue>): StrongOutputType<TInternalValue>;
+export function createScalarType<TInternalValue, TExternalValue>(config: StrongScalarTypeConfigWithInput<TInternalValue, TExternalValue>): StrongInputOutputType<TInternalValue>;
+export function createScalarType<TInternalValue, TExternalValue>(config: StrongScalarTypeConfig<TInternalValue, TExternalValue>): StrongInputOutputType<TInternalValue> {
   return new StrongScalarType(new StrongNullableScalarType(trimDescriptionsInConfig(config)));
 }
 

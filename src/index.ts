@@ -3,35 +3,45 @@ export {
   StrongInputType,
   StrongOutputType,
   StrongInputOutputType,
-} from './type'
+} from './type';
 
 export {
   createScalarType,
-} from './scalar'
+} from './scalar';
 
 export {
   createObjectType,
   StrongObjectTypeConfig,
-  StrongObjectType,
-  StrongNullableObjectType,
-  StrongArgsConfig,
-  StrongArgConfig,
   StrongFieldConfig,
   StrongFieldConfigWithoutArgs,
   StrongFieldConfigWithArgs,
-} from './object'
+  StrongObjectType,
+  StrongNullableObjectType,
+} from './object';
+
+export {
+  createInterfaceType,
+  StrongInterfaceFieldMap,
+  StrongInterfaceTypeConfig,
+  StrongInterfaceFieldMapConfig,
+  StrongInterfaceFieldConfig,
+  StrongInterfaceImplementation,
+  StrongInterfaceFieldImplementation,
+  StrongInterfaceType,
+  StrongNullableInterfaceType,
+} from './interface';
 
 export {
   createEnumType,
-} from './enum'
+} from './enum';
 
 export {
   createListType,
-} from './list'
+} from './list';
 
 export {
   createNullableType,
-} from './nullable'
+} from './nullable';
 
 export {
   wrapWeakType,
@@ -40,12 +50,17 @@ export {
   StringType,
   BooleanType,
   IDType,
-} from './wrap'
+} from './wrap';
 
 export {
   createSchema,
-} from './schema'
+} from './schema';
+
+export {
+  StrongArgsConfig,
+  StrongArgConfig,
+} from './args';
 
 export {
   trimDescription,
-} from './description'
+} from './description';

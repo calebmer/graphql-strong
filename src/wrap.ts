@@ -16,10 +16,10 @@ export const IDType = wrapWeakType<string>(GraphQLID);
  * `GraphQLType` is both a `GraphQLInputType` and a `GraphQLOutputType` a
  * `StrongInputOutputType` will be returned.
  */
-export function wrapWeakType <TValue>(type: GraphQLInputType & GraphQLOutputType): StrongInputOutputType<TValue>;
-export function wrapWeakType <TValue>(type: GraphQLInputType): StrongInputType<TValue>;
-export function wrapWeakType <TValue>(type: GraphQLOutputType): StrongOutputType<TValue>;
-export function wrapWeakType <TValue>(type: GraphQLType): StrongInputOutputType<TValue> {
+export function wrapWeakType<TValue>(type: GraphQLInputType & GraphQLOutputType): StrongInputOutputType<TValue>;
+export function wrapWeakType<TValue>(type: GraphQLInputType): StrongInputType<TValue>;
+export function wrapWeakType<TValue>(type: GraphQLOutputType): StrongOutputType<TValue>;
+export function wrapWeakType<TValue>(type: GraphQLType): StrongInputOutputType<TValue> {
   const nullableStrongType: StrongInputOutputType<TValue | null | undefined> = {
     _strongType: true,
     _strongInputType: true,

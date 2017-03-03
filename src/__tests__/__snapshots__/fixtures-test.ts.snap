@@ -1,5 +1,592 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`interface-fixture.ts 1`] = `
+Array [
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 159,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { foo: { type: StrongInputOutputType<number>; }; bar: {...' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ foo: { type: StrongInputOutputType<number>; }; bar: { type: StrongInputOutputType<string | null...' is not assignable to type 'StrongInterfaceFieldMapConfig<{ foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2326,
+            "messageText": "Types of property 'foo' are incompatible.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type '{ type: StrongInputOutputType<number>; }' is not assignable to type 'StrongInterfaceFieldConfig<any, string>'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property 'type' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type 'StrongInputOutputType<number>' is not assignable to type 'StrongOutputType<string>'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2326,
+                    "messageText": "Types of property 'nullable' are incompatible.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2322,
+                      "messageText": "Type '() => StrongInputOutputType<number | null | undefined>' is not assignable to type '() => StrongOutputType<string | null | undefined>'.",
+                      "next": Object {
+                        "category": 1,
+                        "code": 2322,
+                        "messageText": "Type 'StrongInputOutputType<number | null | undefined>' is not assignable to type 'StrongOutputType<string | null | undefined>'.",
+                        "next": Object {
+                          "category": 1,
+                          "code": 2326,
+                          "messageText": "Types of property 'nullable' are incompatible.",
+                          "next": Object {
+                            "category": 1,
+                            "code": 2322,
+                            "messageText": "Type '() => StrongInputOutputType<number | null | undefined>' is not assignable to type '() => StrongOutputType<string | null | undefined>'.",
+                            "next": Object {
+                              "category": 1,
+                              "code": 2322,
+                              "messageText": "Type 'StrongInputOutputType<number | null | undefined>' is not assignable to type 'StrongOutputType<string | null | undefined>'.",
+                              "next": undefined,
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 589,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      foo: { type: IntegerType },
+      bar: { type: StringType.nullable() },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 159,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { foo: { type: StrongInputOutputType<string>; }; bar: {...' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ foo: { type: StrongInputOutputType<string>; }; bar: { type: StrongInputOutputType<number | null...' is not assignable to type 'StrongInterfaceFieldMapConfig<{ foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2326,
+            "messageText": "Types of property 'bar' are incompatible.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type '{ type: StrongInputOutputType<number | null | undefined>; }' is not assignable to type 'StrongInterfaceFieldConfig<any, string | null | undefined>'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property 'type' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type 'StrongInputOutputType<number | null | undefined>' is not assignable to type 'StrongOutputType<string | null | undefined>'.",
+                  "next": undefined,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 891,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      foo: { type: StringType },
+      bar: { type: IntegerType.nullable() },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 114,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { foo: { type: StrongInputOutputType<string>; }; }; }' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ foo: { type: StrongInputOutputType<string>; }; }' is not assignable to type 'StrongInterfaceFieldMapConfig<{ foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2324,
+            "messageText": "Property 'bar' is missing in type '{ foo: { type: StrongInputOutputType<string>; }; }'.",
+            "next": undefined,
+          },
+        },
+      },
+    },
+    "start": 1192,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      foo: { type: StringType },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 125,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { bar: { type: StrongInputOutputType<string | null | un...' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ bar: { type: StrongInputOutputType<string | null | undefined>; }; }' is not assignable to type 'StrongInterfaceFieldMapConfig<{ foo: { type: string; }; bar: { type: string | null | undefined; }...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2324,
+            "messageText": "Property 'foo' is missing in type '{ bar: { type: StrongInputOutputType<string | null | undefined>; }; }'.",
+            "next": undefined,
+          },
+        },
+      },
+    },
+    "start": 1448,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      bar: { type: StringType.nullable() },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 240,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { x: { type: StrongInputOutputType<string>; args: { foo...' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ x: { type: StrongInputOutputType<string>; args: { foo: { type: StrongInputOutputType<number>; }...' is not assignable to type 'StrongInterfaceFieldMapConfig<{ x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2326,
+            "messageText": "Types of property 'x' are incompatible.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type '{ type: StrongInputOutputType<string>; args: { foo: { type: StrongInputOutputType<number>; }; bar...' is not assignable to type 'StrongInterfaceFieldConfig<{ foo: string; bar: string | null | undefined; }, string>'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property 'args' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type '{ foo: { type: StrongInputOutputType<number>; }; bar: { type: StrongInputOutputType<string | null...' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }> | undefined'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2322,
+                    "messageText": "Type '{ foo: { type: StrongInputOutputType<number>; }; bar: { type: StrongInputOutputType<string | null...' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }>'.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2326,
+                      "messageText": "Types of property 'foo' are incompatible.",
+                      "next": Object {
+                        "category": 1,
+                        "code": 2322,
+                        "messageText": "Type '{ type: StrongInputOutputType<number>; }' is not assignable to type 'StrongArgConfig<string>'.",
+                        "next": Object {
+                          "category": 1,
+                          "code": 2326,
+                          "messageText": "Types of property 'type' are incompatible.",
+                          "next": Object {
+                            "category": 1,
+                            "code": 2322,
+                            "messageText": "Type 'StrongInputOutputType<number>' is not assignable to type 'StrongInputType<string>'.",
+                            "next": Object {
+                              "category": 1,
+                              "code": 2326,
+                              "messageText": "Types of property 'nullable' are incompatible.",
+                              "next": Object {
+                                "category": 1,
+                                "code": 2322,
+                                "messageText": "Type '() => StrongInputOutputType<number | null | undefined>' is not assignable to type '() => StrongInputType<string | null | undefined>'.",
+                                "next": Object {
+                                  "category": 1,
+                                  "code": 2322,
+                                  "messageText": "Type 'StrongInputOutputType<number | null | undefined>' is not assignable to type 'StrongInputType<string | null | undefined>'.",
+                                  "next": Object {
+                                    "category": 1,
+                                    "code": 2326,
+                                    "messageText": "Types of property 'nullable' are incompatible.",
+                                    "next": Object {
+                                      "category": 1,
+                                      "code": 2322,
+                                      "messageText": "Type '() => StrongInputOutputType<number | null | undefined>' is not assignable to type '() => StrongInputType<string | null | undefined>'.",
+                                      "next": Object {
+                                        "category": 1,
+                                        "code": 2322,
+                                        "messageText": "Type 'StrongInputOutputType<number | null | undefined>' is not assignable to type 'StrongInputType<string | null | undefined>'.",
+                                        "next": undefined,
+                                      },
+                                    },
+                                  },
+                                },
+                              },
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 2192,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      x: {
+        type: StringType,
+        args: {
+          foo: { type: IntegerType },
+          bar: { type: StringType.nullable() },
+        },
+      },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 240,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { x: { type: StrongInputOutputType<string>; args: { foo...' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ x: { type: StrongInputOutputType<string>; args: { foo: { type: StrongInputOutputType<string>; }...' is not assignable to type 'StrongInterfaceFieldMapConfig<{ x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2326,
+            "messageText": "Types of property 'x' are incompatible.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type '{ type: StrongInputOutputType<string>; args: { foo: { type: StrongInputOutputType<string>; }; bar...' is not assignable to type 'StrongInterfaceFieldConfig<{ foo: string; bar: string | null | undefined; }, string>'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property 'args' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type '{ foo: { type: StrongInputOutputType<string>; }; bar: { type: StrongInputOutputType<number | null...' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }> | undefined'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2322,
+                    "messageText": "Type '{ foo: { type: StrongInputOutputType<string>; }; bar: { type: StrongInputOutputType<number | null...' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }>'.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2326,
+                      "messageText": "Types of property 'bar' are incompatible.",
+                      "next": Object {
+                        "category": 1,
+                        "code": 2322,
+                        "messageText": "Type '{ type: StrongInputOutputType<number | null | undefined>; }' is not assignable to type 'StrongArgConfig<string | null | undefined>'.",
+                        "next": Object {
+                          "category": 1,
+                          "code": 2326,
+                          "messageText": "Types of property 'type' are incompatible.",
+                          "next": Object {
+                            "category": 1,
+                            "code": 2322,
+                            "messageText": "Type 'StrongInputOutputType<number | null | undefined>' is not assignable to type 'StrongInputType<string | null | undefined>'.",
+                            "next": undefined,
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 2620,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      x: {
+        type: StringType,
+        args: {
+          foo: { type: StringType },
+          bar: { type: IntegerType.nullable() },
+        },
+      },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 191,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { x: { type: StrongInputOutputType<string>; args: { foo...' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ x: { type: StrongInputOutputType<string>; args: { foo: { type: StrongInputOutputType<string>; }...' is not assignable to type 'StrongInterfaceFieldMapConfig<{ x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2326,
+            "messageText": "Types of property 'x' are incompatible.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type '{ type: StrongInputOutputType<string>; args: { foo: { type: StrongInputOutputType<string>; }; }; }' is not assignable to type 'StrongInterfaceFieldConfig<{ foo: string; bar: string | null | undefined; }, string>'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property 'args' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type '{ foo: { type: StrongInputOutputType<string>; }; }' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }> | undefined'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2322,
+                    "messageText": "Type '{ foo: { type: StrongInputOutputType<string>; }; }' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }>'.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2324,
+                      "messageText": "Property 'bar' is missing in type '{ foo: { type: StrongInputOutputType<string>; }; }'.",
+                      "next": undefined,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 3047,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      x: {
+        type: StringType,
+        args: {
+          foo: { type: StringType },
+        },
+      },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 202,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: string; resolveType: any; fields: { x: { type: StrongInputOutputType<string>; args: { bar...' is not assignable to parameter of type 'StrongInterfaceTypeConfig<{}, { x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'fields' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '{ x: { type: StrongInputOutputType<string>; args: { bar: { type: StrongInputOutputType<string | n...' is not assignable to type 'StrongInterfaceFieldMapConfig<{ x: { type: string; args: { foo: string; bar: string | null | unde...'.",
+          "next": Object {
+            "category": 1,
+            "code": 2326,
+            "messageText": "Types of property 'x' are incompatible.",
+            "next": Object {
+              "category": 1,
+              "code": 2322,
+              "messageText": "Type '{ type: StrongInputOutputType<string>; args: { bar: { type: StrongInputOutputType<string | null |...' is not assignable to type 'StrongInterfaceFieldConfig<{ foo: string; bar: string | null | undefined; }, string>'.",
+              "next": Object {
+                "category": 1,
+                "code": 2326,
+                "messageText": "Types of property 'args' are incompatible.",
+                "next": Object {
+                  "category": 1,
+                  "code": 2322,
+                  "messageText": "Type '{ bar: { type: StrongInputOutputType<string | null | undefined>; }; }' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }> | undefined'.",
+                  "next": Object {
+                    "category": 1,
+                    "code": 2322,
+                    "messageText": "Type '{ bar: { type: StrongInputOutputType<string | null | undefined>; }; }' is not assignable to type 'StrongArgsConfig<{ foo: string; bar: string | null | undefined; }>'.",
+                    "next": Object {
+                      "category": 1,
+                      "code": 2324,
+                      "messageText": "Property 'foo' is missing in type '{ bar: { type: StrongInputOutputType<string | null | undefined>; }; }'.",
+                      "next": undefined,
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+    "start": 3425,
+    "text": "{
+    name: 'Foobar',
+    resolveType: undefined as any,
+    fields: {
+      x: {
+        type: StringType,
+        args: {
+          bar: { type: StringType.nullable() },
+        },
+      },
+    },
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 6,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{}' is not assignable to parameter of type 'StrongInterfaceImplementation<Person, {}, { name: { type: string; }; }>'.",
+      "next": Object {
+        "category": 1,
+        "code": 2324,
+        "messageText": "Property 'name' is missing in type '{}'.",
+        "next": undefined,
+      },
+    },
+    "start": 4446,
+    "text": "{
+
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 7031,
+    "length": 5,
+    "messageText": "Binding element 'email' implicitly has an 'any' type.",
+    "start": 4529,
+    "text": "email",
+  },
+  Object {
+    "category": 1,
+    "code": 2345,
+    "length": 25,
+    "messageText": Object {
+      "category": 1,
+      "code": 2345,
+      "messageText": "Argument of type '{ name: () => number; }' is not assignable to parameter of type 'StrongInterfaceImplementation<Person, {}, { name: { type: string; }; }>'.",
+      "next": Object {
+        "category": 1,
+        "code": 2326,
+        "messageText": "Types of property 'name' are incompatible.",
+        "next": Object {
+          "category": 1,
+          "code": 2322,
+          "messageText": "Type '() => number' is not assignable to type 'StrongInterfaceFieldImplementation<Person, any, {}, string>'.",
+          "next": Object {
+            "category": 1,
+            "code": 2322,
+            "messageText": "Type 'number' is not assignable to type 'string | Promise<string>'.",
+            "next": undefined,
+          },
+        },
+      },
+    },
+    "start": 4883,
+    "text": "{
+    name: () => 42,
+  }",
+  },
+  Object {
+    "category": 1,
+    "code": 7031,
+    "length": 5,
+    "messageText": "Binding element 'email' implicitly has an 'any' type.",
+    "start": 4985,
+    "text": "email",
+  },
+]
+`;
+
 exports[`object-fixture.ts 1`] = `
 Array [
   Object {
